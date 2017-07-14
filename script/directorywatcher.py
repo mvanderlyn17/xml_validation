@@ -1,5 +1,5 @@
 import os, time
-path_to_watch = "."
+path_to_watch = "../xmls"
 before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 while 1:
   time.sleep (10)

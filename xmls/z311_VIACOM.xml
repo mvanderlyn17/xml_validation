@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI>
+  <Metadata>
+    <AMS Asset_Name="DailyShow06-21_22124_CMDY_2017-06-25Package" Provider="MSV_COMEDYCENTRAL_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-06-25 June 21, 2017 - Jason Isbell_package" Creation_Date="2017-06-22" Provider_ID="comcentralfod.com" Asset_Class="package" Asset_ID="XPPK0000000000645912"/>
+    <App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+  </Metadata>
+  <Asset>
+    <Metadata>
+      <AMS Asset_Name="DailyShow06-21_22124_CMDY_2017-06-25Title" Provider="MSV_COMEDYCENTRAL_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-06-25 June 21, 2017 - Jason Isbell_title" Creation_Date="2017-06-22" Provider_ID="comcentralfod.com" Asset_Class="title" Asset_ID="XPTL0000000000645912"/>
+      <App_Data App="MOD" Name="Type" Value="title"/>
+      <App_Data App="MOD" Name="Title" Value="Daily Show 06-21-17"/>
+      <App_Data App="MOD" Name="Title_Sort_Name" Value="Daily Show 06-21"/>
+      <App_Data App="MOD" Name="Title_Brief" Value="Daily Show 06-21"/>
+      <App_Data App="MOD" Name="Episode_ID" Value="22124"/>
+      <App_Data App="MOD" Name="Season" Value="22"/>
+      <App_Data App="MOD" Name="Summary_Long" Value="Musician Jason Isbell stops by The Daily Show to talk about his album, &quot;The Nashville Sound.&quot;"/>
+      <App_Data App="MOD" Name="Summary_Medium" Value="Musician Jason Isbell stops by The Daily Show to talk about his album, &quot;The Nashville Sound.&quot;"/>
+      <App_Data App="MOD" Name="Summary_Short" Value="Musician Jason Isbell stops by The Daily Show to talk about his album, &quot;The Nashville Sound.&quot;"/>
+      <App_Data App="MOD" Name="Season_Description" Value="The Daily Show with Trevor Noah takes on the day's top headlines, from Indecision 2016 to the end of the Obama administration. In the studio and out in the field, Trevor and The Best F#@king News Team unpack politics, pop culture and so much more."/>
+      <App_Data App="MOD" Name="Rating" Value="TV-14"/>
+      <App_Data App="MOD" Name="Closed_Captioning" Value="Y"/>
+      <App_Data App="MOD" Name="Display_Run_Time" Value="00:21"/>
+      <App_Data App="MOD" Name="Run_Time" Value="00:21:28"/>
+      <App_Data App="MOD" Name="Year" Value="2017"/>
+      <App_Data App="MOD" Name="Actors_Display" Value="Trevor Noah"/>
+      <App_Data App="MOD" Name="Actors" Value="Noah, Trevor"/>
+      <App_Data App="MOD" Name="Category" Value="Flex View/Flex View TV"/>
+      <App_Data App="MOD" Name="Genre" Value="Comedy"/>
+      <App_Data App="MOD" Name="Original_Air_Date" Value="2017-06-21"/>
+      <App_Data App="MOD" Name="Licensing_Window_Start" Value="2017-06-25T00:00:00"/>
+      <App_Data App="MOD" Name="Licensing_Window_End" Value="2017-07-19T23:59:59"/>
+      <App_Data App="MOD" Name="Billing_ID" Value="00000"/>
+      <App_Data App="MOD" Name="Provider_QA_Contact" Value="DL_Digital_VOD_Ops@viacom.com"/>
+      <App_Data App="MOD" Name="Ad_Content_ID" Value="49324_281987"/>
+      <App_Data App="MOD" Name="Series_Name" Value="The Daily Show with Trevor Noah"/>
+      <App_Data App="MOD" Name="Series_Description" Value="The Daily Show looks at the day's top headlines through a sharp, reality-based lens. Along with the help of The Best F#@king News Team, host Trevor Noah covers the biggest news stories in politics, pop culture and more."/>
+      <App_Data App="MOD" Name="Episode_Name" Value="June 21, 2017 - Jason Isbell"/>
+      <App_Data App="MOD" Name="Show_Type" Value="Other"/>
+      <App_Data App="MOD" Name="HD_Rights" Value="Y"/>
+      <App_Data App="MOD" Name="NielsenClientID" Value="us-300231"/>
+      <App_Data App="MOD" Name="NielsenVideoCensus" Value="c06"/>
+      <App_Data App="MOD" Name="NielsenCensusCategoryID" Value="The Daily Show with Trevor Noah"/>
+      <App_Data App="MOD" Name="ComscoreID" Value="6059092"/>
+      <App_Data App="MOD" Name="Cue_Points" Value="667,911,1262,1288"/>
+    </Metadata>
+    <Asset>
+      <Metadata>
+        <AMS Asset_Name="DailyShow06-21_22124_CMDY_2017-06-25Movie" Provider="MSV_COMEDYCENTRAL_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-06-25 June 21, 2017 - Jason Isbell_movie" Creation_Date="2017-06-22" Provider_ID="comcentralfod.com" Asset_Class="movie" Asset_ID="XPMV0000000000645912"/>
+        <App_Data App="MOD" Name="Type" Value="movie"/>
+        <App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+        <App_Data App="MOD" Name="HD_Rights" Value="Y"/>
+        <App_Data App="MOD" Name="Bit_Rate" Value=""/>
+        <App_Data App="MOD" Name="Content_FileSize" Value=""/>
+        <App_Data App="MOD" Name="Content_CheckSum" Value=""/>
+        <App_Data App="MOD" Name="AdBreaks" Value="00:00:02:00, 00:00:02:00"/>
+        <App_Data App="MOD" Name="AdBreaks" Value="00:11:06:13, 00:11:06:13"/>
+        <App_Data App="MOD" Name="AdBreaks" Value="00:15:10:22, 00:15:10:22"/>
+        <App_Data App="MOD" Name="AdBreaks" Value="00:21:01:26, 00:21:01:26"/>
+        <App_Data App="MOD" Name="AdBreaks" Value="00:21:27:07, 00:21:27:07"/>
+      </Metadata>
+      <Content Value="20170625_cmdy_dailyshow0621_vzmobvmn.mpg"/>
+    </Asset>
+    <Asset>
+      <Metadata>
+        <AMS Asset_Name="DailyShow06-21_22124_CMDY_2017-06-25Poster" Provider="MSV_COMEDYCENTRAL_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-06-25 June 21, 2017 - Jason Isbell_poster" Creation_Date="2017-06-22" Provider_ID="comcentralfod.com" Asset_Class="poster" Asset_ID="XPPO0000000000645912"/>
+        <App_Data App="MOD" Name="Type" Value="poster"/>
+        <App_Data App="MOD" Name="Content_FileSize" Value=""/>
+        <App_Data App="MOD" Name="Content_CheckSum" Value=""/>
+        <App_Data App="MOD" Name="Image_Aspect_Ratio" Value="800x1200"/>
+      </Metadata>
+      <Content Value="20170625_cmdy_dailyshow0621_vzmobvmn.jpg"/>
+    </Asset>
+  </Asset>
+</ADI>
