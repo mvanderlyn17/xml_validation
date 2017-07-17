@@ -12,7 +12,17 @@ class XmlContentValidator:
 
     def validateClass(self,xmlfilename):
 
+        wfile=open("Demo.txt","a+")
+        data=" "
         r=0
+        r1=0
+        r2=0
+        r3=0
+        r4=0
+        r5=0
+        r6=0
+        r7=0
+        r8=0
         xmldoc = minidom.parse(xmlfilename)
         itemlist = xmldoc.getElementsByTagName('AMS')
 
@@ -58,16 +68,60 @@ class XmlContentValidator:
 
         if r1==1 and r2==1 and r3==1 and r4==1 and r5==1 and r6==1 and r7==1 and r8==1:
 
-            print "Valid XML"
+                return "Valid"
 
 
         else:
 
-            print "Invalid XML"
-            print "Error-Required Asset Classes missing"
+                if r1!=1:
+                    data=xmlfilename+" is Missing Package\n\n"
+                    wfile.write(data)
+                    return "Invalid"
+
+                if r2!=1:
+                    data=xmlfilename+" is Missing Title\n\n"
+                    wfile.write(data)
+                    return "Invalid"
 
 
-        return "Done"
+                if r3!=1:
+                    data=xmlfilename+" is Missing Movie\n\n"
+                    wfile.write(data)
+                    return "Invalid"
+
+
+                if r4!=1:
+                    data=xmlfilename+" is Missing Preview\n\n"
+                    wfile.write(data)
+                    return "Invalid"
+
+
+                if r5!=1:
+                    data=xmlfilename+" is Missing Poster\n\n"
+                    wfile.write(data)
+                    return "Invalid"
+
+
+                if r6!=1:
+                    data=xmlfilename+" is Missing Box Cover\n\n"
+                    wfile.write(data)
+                    return "Invalid"
+
+
+                if r7!=1:
+                    data=xmlfilename+" is Missing Thumbnail\n\n"
+                    wfile.write(data)
+                    return "Invalid"
+
+
+                if r8!=1:
+                    data=xmlfilename+" is Missing High Res\n\n"
+                    wfile.write(data)
+                    return "Invalid"
+
+
+
+
 
 
 
@@ -216,14 +270,18 @@ class XmlContentValidator:
 
         if ((check3 == 1 and check4 == 1 and check5 == 1 and check6 == 1) or (check5 == 1 and check6 == 1 and check5 == 2 and check6 == 2)):
 
-                    return "Valid Contents in the XML"
+                    return "Valid"
 
         else:
-                    return "Invalid Contents in the XML"
+                    return "Invalid"
 
 
 
 
 
-#validateTVODXML('Lambert_StampTVNX0038260202255551SMOOTH_SD.xml')
-#validateClass('Lambert_StampTVNX0038260202255551SMOOTH_SD.xml')
+    # test1=validateTVODXML('Wind2016010601TVNX0039192016010602SMOOTH_SD.xml')
+    # test2=validateClass('Wind2016010601TVNX0039192016010602SMOOTH_SD.xml')
+    #
+    #
+    # print test1
+    # print test2
