@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ADI>
 	<Metadata>
-		<AMS Asset_ID="Battleship_Package" Asset_Name="Battleship" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<AMS Asset_Class="package" Asset_ID="Battleship_Package" Asset_Name="Battleship" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
 		<App_Data App="MOD" Name="Provider_Content_Tier" Value="nbcuniversal"/>
 		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
 	</Metadata>
@@ -68,7 +68,7 @@
 	</Asset>
 	<Asset>
 		<Metadata>
-				<AMS Asset_Class="Poster" Asset_ID="Battleship_Poster" Asset_Name="Battleship_Poster" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+				<AMS Asset_Class="poster" Asset_ID="Battleship_Poster" Asset_Name="Battleship_Poster" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
 				<App_Data App="MOD" Name="Image_Aspect_Ratio" Value="1000x1440"/>
 				<App_Data App="MOD" Name="Type" Value="Poster"/>
 			</Metadata>
@@ -85,5 +85,9 @@
  		</Metadata>
  		<Content Value="Battleship_0239202392_FTR_Theatrical_2398_16x9LB_ENG_HD_ProResHQ_220M_Trailer_v3.mov"/>
 	</Asset>
+	<AMS Asset_Class="box cover" Asset_ID="Battleship_Poster" Asset_Name="Battleship_Poster" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<AMS Asset_Class="thumb nail" Asset_ID="Battleship_Poster" Asset_Name="Battleship_Poster" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+			<AMS Asset_Class="high res" Asset_ID="Battleship_Poster" Asset_Name="Battleship_Poster" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+
 	</Asset>
 </ADI>
