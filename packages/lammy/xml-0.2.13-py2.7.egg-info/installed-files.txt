@@ -1,0 +1,13 @@
+../pxml/__init__.py
+../pxml/test.py
+../pxml/__init__.pyc
+../pxml/test.pyc
+.
+dependency_links.txt
+entry_points.txt
+PKG-INFO
+requires.txt
+SOURCES.txt
+top_level.txt
+zip-safe
+../../../bin/pxml
