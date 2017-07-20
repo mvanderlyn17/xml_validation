@@ -1,2 +1,2 @@
-File is valid!
-RUNTIME=  0:00:02.311364
+content_provider,package_name,validity_status,invalid_fields
+NBC,Battleship,Valid,[]

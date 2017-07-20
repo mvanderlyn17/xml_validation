@@ -12,10 +12,22 @@ path_to_watch = "../../xmls/"
 before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 ###############################################<FUNCTIONS>############################################
 def main():
-
+    #need to record information per partner in a local text file
     while 1:
         watch_dir()
-        pull_from_s3()
+        file_content = pull_from_s3()
+        if(file_content):
+            headers = file_content[0].split(",")
+            info = file_content[1].split(",")
+            print(''.join(headers))
+            print(info)
+            #read file to fill variables
+            #print out content provider
+            #print out filename
+            #print out valid/invalid
+            #print out what was wrong
+            #print out running partners accuracy, score
+            #print run time
         time.sleep(2)
 def watch_dir():
     global path_to_watch
@@ -33,19 +45,21 @@ def watch_dir():
         print "Removed: ", ", ".join (removed)
     before = after
 def pull_from_s3():
-    time.sleep(2)
     if(checkLog()):
-        print('file found')
+        print('New validation info found')
         try:
             s3.Bucket('gen3-interns').download_file('logs/log.txt', '../../logs/log.txt')
-            print('file downloaded')
+            print('Validation info retrieved from s3')
             client.delete_object(Bucket='gen3-interns', Key ='logs/log.txt')
-            print('file deleted')
+            print('Old validation info deleted from s3')
             file = open('../../logs/log.txt')
-            print(file.read())
+            #print(file.read())
+            file_headers = file.readline()
+            file_content =  file.readline()
             file.close()
+            return [file_headers,file_content]
         except botocore.exceptions.ClientError as e:
-            print('404 file not found')
+            print('No new validation info')
             if e.response['Error']['Code'] == "404":
                 print("The object does not exist.")
             else:
