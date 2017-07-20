@@ -1,21 +1,31 @@
 #######################################################################################################
 # End to end local script for internship project 2017                                                 #
 # Programmed by: Michael Vanderlyn                                                                    #
-#                                                                                                     #
+#                 so sexy                                                                             #
 ##################################################<IMPORTS>############################################
 import boto3
 import os, time
 import botocore
+from datetime import datetime
+
+
 s3 = boto3.resource('s3')
 client = boto3.client('s3')
-path_to_watch = "../../xmls/"
+path_to_watch = "../../xmls/trigger/"
 before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 ###############################################<FUNCTIONS>############################################
 def main():
 
     while 1:
+        startTime = datetime.now()
         watch_dir()
-        pull_from_s3()
+        x = pull_from_s3()
+        if(x):
+            file = open('../../logs/log.txt', 'a')
+            endTime = datetime.now()
+            runTime = endTime - startTime
+            file.write('\n\nTOTAL RUNTIME: '+ str(runTime) + '\n\n')
+            file.close()
         time.sleep(2)
 def watch_dir():
     global path_to_watch
@@ -28,10 +38,14 @@ def watch_dir():
         print("Upload started: "+file)
         data = open("../../xmls/"+file, 'rb')
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
-        print "Uploaded Complete"
+        print "Upload Complete"
+
     if removed:
         print "Removed: ", ", ".join (removed)
     before = after
+
+
+
 def pull_from_s3():
     time.sleep(2)
     if(checkLog()):
@@ -44,17 +58,22 @@ def pull_from_s3():
             file = open('../../logs/log.txt')
             print(file.read())
             file.close()
+            return True
         except botocore.exceptions.ClientError as e:
             print('404 file not found')
             if e.response['Error']['Code'] == "404":
                 print("The object does not exist.")
+                return False
             else:
                 raise
+
+
+
 def checkLog():
     try:
         s3.Object('gen3-interns', 'logs/log.txt').load()
     except botocore.exceptions.ClientError as e:
-        print('404 file not found')
+        #print('404 file not found')
         if e.response['Error']['Code'] == "404":
             return False
         else:
