@@ -1,8 +1,2 @@
-
-
-
-I HATE YOU LAMBDA
-hello there ladddie
-
-
-RUNTIME=  0:00:00.424794
+File is valid!
+RUNTIME=  0:00:02.311364

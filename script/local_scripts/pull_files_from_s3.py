@@ -21,11 +21,11 @@ while(True):
     if(checkLog()):
         print('file found')
         try:
-            s3.Bucket('gen3-interns').download_file('logs/log.txt', '../logs/log.txt')
+            s3.Bucket('gen3-interns').download_file('logs/log.txt', '../../logs/log.txt')
             print('file downloaded')
             client.delete_object(Bucket='gen3-interns', Key ='logs/log.txt')
             print('file deleted')
-            file = open('../logs/log.txt')
+            file = open('../../logs/log.txt')
             print(file.read())
             file.close()
         except botocore.exceptions.ClientError as e:

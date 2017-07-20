@@ -1,6 +1,6 @@
 import boto3
 import os, time
-path_to_watch = "../xmls/"
+path_to_watch = "../../xmls/"
 s3 = boto3.resource('s3')
 before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 while 1:
@@ -11,7 +11,7 @@ while 1:
   if added:
       file = ", ".join(added)
       print("Upload started: "+file)
-      data = open("../xmls/"+file, 'rb')
+      data = open("../../xmls/"+file, 'rb')
       s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
       print "Uploaded Complete"
   if removed:
