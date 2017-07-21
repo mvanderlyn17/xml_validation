@@ -1,6 +1,6 @@
 #######################################################################################################
 # End to end local script for internship project 2017                                                 #
-# Programmed by: Michael Vanderlyn                                                                    #
+# Programmed by: nylrednaV leahciM                                                                    #
 #                 so sexy                                                                             #
 ##################################################<IMPORTS>############################################
 import boto3
@@ -19,10 +19,8 @@ def main():
     #need to record information per partner in a local text file
     print("Searching for new files...")
     while 1:
-        # I DON'T THINK THIS IS THE RIGHT WAY TO DO THIS, WHAT IF WE GO THROUGH ANOTHER LOOP BEFORE SEEING THE VALIDATION
-        start_time = datetime.now()                            # NEED TO GET START TIME FROM FILE, END TIME IS FROM WHEN WE FINISH PROCESSING IT
+        start_time = datetime.now()
         file_found = watch_dir()
-        #file_content = pull_from_s3()
         if(file_found):
             file_content = False
             print("Processing...")
@@ -60,6 +58,7 @@ def watch_dir():
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
         print "Upload Complete"
         before = dict ([(f, None) for f in os.listdir (path_to_watch)])
+        
         return True
 
     if removed:
