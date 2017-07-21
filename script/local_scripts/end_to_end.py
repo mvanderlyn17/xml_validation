@@ -27,12 +27,13 @@ def main():
             print("Processing...")
             while(not file_content):
                 file_content = pull_from_s3(watch_info[0],watch_info[1])
+                #print('oh dear')
                 continue
             end_time = datetime.now()
             headers = file_content[0].split(",")
             headers.append("run_time")
             info = file_content[1].split(",")
-            lambda_start_time = parser.parse(info[len(info)-1])
+            lambda_start_time = parser.parse(info[len(info)-1])  #ERROR HERE WHEN INVALID
             run_time = end_time - start_time
             info.append(str(run_time)+" seconds")
             print_info(headers,info)
@@ -78,7 +79,8 @@ def watch_dir():
         return [content_provider,package_name]
 
     if removed:
-        print "Removed: ", ", ".join (removed)
+        j=2
+        #print "Removed: ", ", ".join (removed)
     before = after
 
 
@@ -88,15 +90,15 @@ def pull_from_s3(content_provider,package_name):
         print('New validation info found')
         try:
             s3.Bucket('gen3-interns').download_file('logs/'+package_name+'.txt', '../../xmls_out/'+content_provider+'/'+package_name+'.txt') #add LOG to the end
-            print('Validation info retrieved from s3')
+            #print('Validation info retrieved from s3')
             client.delete_object(Bucket='gen3-interns', Key ='logs/'+package_name+'.txt')
-            print('Old validation info deleted from s3')
+            #print('Old validation info deleted from s3')
             file = open('../../xmls_out/'+content_provider+'/'+package_name+'.txt') #add LOG to the end
-            #print(file.read())
             file_headers = file.readline()
             file_content =  file.readline()
             file.close()
-            return [file_headers,file_content]
+            return [file_headers, file_content]
+
 
         except botocore.exceptions.ClientError as e:
             print('No new validation info')
