@@ -58,7 +58,19 @@ def watch_dir():
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
         print "Upload Complete"
         before = dict ([(f, None) for f in os.listdir (path_to_watch)])
-        
+
+        xml_file = minidom.parseString(data)
+        itemlist = xml_file.getElementsByTagName('App_Data')
+        s =itemlist[0]
+        content_provider=(s.attributes['Value'].value)
+        not if(content_provider == 'nbcuniversal'):
+            content_provider = "other"
+        package_name = file.replace(".xml","")
+
+
+
+        os.rename("../../xmls_in/" + file, "../../xmls_out/" + content_provider +"/" + file)
+
         return True
 
     if removed:
