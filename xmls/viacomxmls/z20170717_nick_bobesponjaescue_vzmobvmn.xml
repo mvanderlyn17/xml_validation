@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI>
+	<Metadata>
+		<AMS Asset_Name="BobEsponja:Escue._104_NICK_2017-07-17Package" Provider="MSV_NICKELODEON_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-17 Los traviesos vecinos n&#x00E1;uticos / Escuela de navegaci&#x00F3;n_package" Creation_Date="2017-07-13" Provider_ID="nickelodeonfod.com" Asset_Class="package" Asset_ID="XPPK0000000000654622"/>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Asset_Name="BobEsponja:Escue._104_NICK_2017-07-17Title" Provider="MSV_NICKELODEON_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-17 Los traviesos vecinos n&#x00E1;uticos / Escuela de navegaci&#x00F3;n_title" Creation_Date="2017-07-13" Provider_ID="nickelodeonfod.com" Asset_Class="title" Asset_ID="XPTL0000000000654622"/>
+			<App_Data App="MOD" Name="Type" Value="title"/>
+			<App_Data App="MOD" Name="Title" Value="Bob Esponja: Escuela de navegaci&#x00F3;n"/>
+			<App_Data App="MOD" Name="Title_Sort_Name" Value="Bob Esponja: Escue."/>
+			<App_Data App="MOD" Name="Title_Brief" Value="Bob Esponja: Escue."/>
+			<App_Data App="MOD" Name="Episode_ID" Value="104"/>
+			<App_Data App="MOD" Name="Season" Value="1"/>
+			<App_Data App="MOD" Name="Summary_Long" Value="Los traviesos vecinos n&#x00E1;uticos / Escuela de navegaci&#x00F3;n: Calamardo hace que Bob Esponja y Patricio ya no sean amigos y trata de unirlos. / Bob Esponja hace una prueba de conducci&#x00F3;n con ayuda de Patricio.
+
+"/>
+			<App_Data App="MOD" Name="Summary_Medium" Value="Los traviesos vecinos n&#x00E1;uticos / Escuela de navegaci&#x00F3;n: Calamardo hace que Bob Esponja y Patricio ya no sean amigos y trata de unirlos. / Bob Esponja hace una prueba de conducci&#x00F3;n con ayuda de Patricio.
+
+"/>
+			<App_Data App="MOD" Name="Summary_Short" Value="Los traviesos vecinos n&#x00E1;uticos / Escuela de navegaci&#x00F3;n: Calamardo hace que Bob Esponja y Patricio ya no sean amigos y trata de unirlos. / Bob Esponja hace una prueba de conducci&#x00F3;n con ayuda de Patricio.
+
+"/>
+			<App_Data App="MOD" Name="Season_Description" Value=""/>
+			<App_Data App="MOD" Name="Rating" Value="TV-Y"/>
+			<App_Data App="MOD" Name="Closed_Captioning" Value="Y"/>
+			<App_Data App="MOD" Name="Display_Run_Time" Value="00:23"/>
+			<App_Data App="MOD" Name="Run_Time" Value="00:23:30"/>
+			<App_Data App="MOD" Name="Year" Value="2000"/>
+			<App_Data App="MOD" Name="Director" Value="Springer, Aaron"/>
+			<App_Data App="MOD" Name="Director" Value="Dohrn, Walt"/>
+			<App_Data App="MOD" Name="Category" Value="Flex View/Flex View TV"/>			
+			<App_Data App="MOD" Name="Genre" Value="Animation"/>
+			<App_Data App="MOD" Name="Original_Air_Date" Value="2000-02-09"/>
+			<App_Data App="MOD" Name="Licensing_Window_Start" Value="2017-07-17T00:00:00"/>
+			<App_Data App="MOD" Name="Licensing_Window_End" Value="2017-08-13T23:59:59"/>
+			<App_Data App="MOD" Name="Billing_ID" Value="00000"/>
+			<App_Data App="MOD" Name="Provider_QA_Contact" Value="DL_Digital_VOD_Ops@viacom.com"/>
+			<App_Data App="MOD" Name="Ad_Content_ID" Value="80_2426"/>
+			<App_Data App="MOD" Name="Series_Name" Value="Spongebob"/>
+			<App_Data App="MOD" Name="Series_Description" Value=""/>
+			<App_Data App="MOD" Name="Episode_Name" Value="Los traviesos vecinos n&#x00E1;uticos / Escuela de navegaci&#x00F3;n"/>
+			<App_Data App="MOD" Name="Show_Type" Value="Other"/>
+			<App_Data App="MOD" Name="HD_Rights" Value="N"/>
+			<App_Data App="MOD" Name="NielsenClientID" Value="us-300231"/>
+			<App_Data App="MOD" Name="NielsenVideoCensus" Value="c02"/>
+			<App_Data App="MOD" Name="NielsenCensusCategoryID" Value="Spongebob"/>
+			<App_Data App="MOD" Name="ComscoreID" Value="6088244"/>
+			<App_Data App="MOD" Name="Cue_Points" Value="708,1323"/>
+
+		</Metadata>
+			<Asset>
+				<Metadata>
+					<AMS Asset_Name="BobEsponja:Escue._104_NICK_2017-07-17Movie" Provider="MSV_NICKELODEON_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-17 Los traviesos vecinos n&#x00E1;uticos / Escuela de navegaci&#x00F3;n_movie" Creation_Date="2017-07-13" Provider_ID="nickelodeonfod.com" Asset_Class="movie" Asset_ID="XPMV0000000000654622"/>
+					<App_Data App="MOD" Name="Type" Value="movie"/>
+					<App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+					<App_Data App="MOD" Name="HD_Rights" Value="N"/>
+					<App_Data App="MOD" Name="Bit_Rate" Value=""/>
+					<App_Data App="MOD" Name="Content_FileSize" Value=""/>
+					<App_Data App="MOD" Name="Content_CheckSum" Value=""/>					
+					<App_Data App="MOD" Name="AdBreaks" Value="00:00:02:00, 00:00:02:00"/>
+					<App_Data App="MOD" Name="AdBreaks" Value="00:11:47:11, 00:11:47:11"/>
+					<App_Data App="MOD" Name="AdBreaks" Value="00:22:02:00, 00:22:02:00"/>
+				</Metadata>
+				<Content Value="20170717_nick_bobesponjaescue_vzmobvmn.mpg"/>
+			</Asset>
+			<Asset>
+				<Metadata>
+					<AMS Asset_Name="BobEsponja:Escue._104_NICK_2017-07-17Poster" Provider="MSV_NICKELODEON_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-17 Los traviesos vecinos n&#x00E1;uticos / Escuela de navegaci&#x00F3;n_poster" Creation_Date="2017-07-13" Provider_ID="nickelodeonfod.com" Asset_Class="poster" Asset_ID="XPPO0000000000654622"/>
+					<App_Data App="MOD" Name="Type" Value="poster"/>
+					<App_Data App="MOD" Name="Content_FileSize" Value=""/>
+					<App_Data App="MOD" Name="Content_CheckSum" Value=""/>
+					<App_Data App="MOD" Name="Image_Aspect_Ratio" Value="800x1200"/>
+				</Metadata>
+				<Content Value="20170717_nick_bobesponjaescue_vzmobvmn.jpg"/>
+			</Asset>
+	</Asset>
+</ADI>

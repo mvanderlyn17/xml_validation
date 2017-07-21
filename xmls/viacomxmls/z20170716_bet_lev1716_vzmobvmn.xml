@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI>
+	<Metadata>
+		<AMS Asset_Name="LEV1716_1716_BET_2017-07-16Package" Provider="MSV_BET_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-16 LEV 1716: Vashawn Mitchell &amp; Todd Dulaney_package" Creation_Date="2017-07-11" Provider_ID="betfod.com" Asset_Class="package" Asset_ID="XPPK0000000000653885"/>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Asset_Name="LEV1716_1716_BET_2017-07-16Title" Provider="MSV_BET_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-16 LEV 1716: Vashawn Mitchell &amp; Todd Dulaney_title" Creation_Date="2017-07-11" Provider_ID="betfod.com" Asset_Class="title" Asset_ID="XPTL0000000000653885"/>
+			<App_Data App="MOD" Name="Type" Value="title"/>
+			<App_Data App="MOD" Name="Title" Value="LEV 1716: Vashawn Mitchell &amp; Todd D"/>
+			<App_Data App="MOD" Name="Title_Sort_Name" Value="LEV 1716"/>
+			<App_Data App="MOD" Name="Title_Brief" Value="LEV 1716"/>
+			<App_Data App="MOD" Name="Episode_ID" Value="1716"/>
+			<App_Data App="MOD" Name="Season" Value="17"/>
+			<App_Data App="MOD" Name="Summary_Long" Value="Watch Vashawn Mitchell and Todd Dulaney on Lift Every Voice!"/>
+			<App_Data App="MOD" Name="Summary_Medium" Value="Watch Vashawn Mitchell and Todd Dulaney on Lift Every Voice!"/>
+			<App_Data App="MOD" Name="Summary_Short" Value="Watch Vashawn Mitchell and Todd Dulaney on Lift Every Voice!"/>
+			<App_Data App="MOD" Name="Season_Description" Value=""/>
+			<App_Data App="MOD" Name="Rating" Value="TV-G"/>
+			<App_Data App="MOD" Name="Closed_Captioning" Value="Y"/>
+			<App_Data App="MOD" Name="Display_Run_Time" Value="00:19"/>
+			<App_Data App="MOD" Name="Run_Time" Value="00:19:35"/>
+			<App_Data App="MOD" Name="Year" Value="2017"/>
+			<App_Data App="MOD" Name="Actors_Display" Value="VaShawn Mitchell, Todd Dulaney"/>
+			<App_Data App="MOD" Name="Actors" Value="Mitchell, VaShawn"/>
+			<App_Data App="MOD" Name="Actors" Value="Dulaney, Todd"/>
+			<App_Data App="MOD" Name="Category" Value="Flex View/Flex View TV"/>			
+			<App_Data App="MOD" Name="Genre" Value="Gospel"/>
+			<App_Data App="MOD" Name="Genre" Value="Interview"/>
+			<App_Data App="MOD" Name="Original_Air_Date" Value="2017-05-07"/>
+			<App_Data App="MOD" Name="Licensing_Window_Start" Value="2017-07-16T00:00:00"/>
+			<App_Data App="MOD" Name="Licensing_Window_End" Value="2017-08-13T23:59:59"/>
+			<App_Data App="MOD" Name="Billing_ID" Value="00000"/>
+			<App_Data App="MOD" Name="Provider_QA_Contact" Value="DL_Digital_VOD_Ops@viacom.com"/>
+			<App_Data App="MOD" Name="Ad_Content_ID" Value="37200_274497"/>
+			<App_Data App="MOD" Name="Series_Name" Value="Lift Every Voice"/>
+			<App_Data App="MOD" Name="Series_Description" Value=""/>
+			<App_Data App="MOD" Name="Episode_Name" Value="LEV 1716: Vashawn Mitchell &amp; Todd Dulaney"/>
+			<App_Data App="MOD" Name="Show_Type" Value="Other"/>
+			<App_Data App="MOD" Name="HD_Rights" Value="Y"/>
+			<App_Data App="MOD" Name="NielsenClientID" Value=""/>
+			<App_Data App="MOD" Name="NielsenVideoCensus" Value=""/>
+			<App_Data App="MOD" Name="NielsenCensusCategoryID" Value="Lift Every Voice"/>
+			<App_Data App="MOD" Name="ComscoreID" Value=""/>
+			<App_Data App="MOD" Name="Cue_Points" Value="255,562,842"/>
+
+		</Metadata>
+			<Asset>
+				<Metadata>
+					<AMS Asset_Name="LEV1716_1716_BET_2017-07-16Movie" Provider="MSV_BET_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-16 LEV 1716: Vashawn Mitchell &amp; Todd Dulaney_movie" Creation_Date="2017-07-11" Provider_ID="betfod.com" Asset_Class="movie" Asset_ID="XPMV0000000000653885"/>
+					<App_Data App="MOD" Name="Type" Value="movie"/>
+					<App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+					<App_Data App="MOD" Name="HD_Rights" Value="Y"/>
+					<App_Data App="MOD" Name="Bit_Rate" Value=""/>
+					<App_Data App="MOD" Name="Content_FileSize" Value=""/>
+					<App_Data App="MOD" Name="Content_CheckSum" Value=""/>					
+					<App_Data App="MOD" Name="AdBreaks" Value="00:00:02:00, 00:00:02:00"/>
+					<App_Data App="MOD" Name="AdBreaks" Value="00:04:14:25, 00:04:14:25"/>
+					<App_Data App="MOD" Name="AdBreaks" Value="00:09:21:08, 00:09:21:08"/>
+					<App_Data App="MOD" Name="AdBreaks" Value="00:14:01:06, 00:14:01:06"/>
+				</Metadata>
+				<Content Value="20170716_bet_lev1716_vzmobvmn.mpg"/>
+			</Asset>
+			<Asset>
+				<Metadata>
+					<AMS Asset_Name="LEV1716_1716_BET_2017-07-16Poster" Provider="MSV_BET_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-16 LEV 1716: Vashawn Mitchell &amp; Todd Dulaney_poster" Creation_Date="2017-07-11" Provider_ID="betfod.com" Asset_Class="poster" Asset_ID="XPPO0000000000653885"/>
+					<App_Data App="MOD" Name="Type" Value="poster"/>
+					<App_Data App="MOD" Name="Content_FileSize" Value=""/>
+					<App_Data App="MOD" Name="Content_CheckSum" Value=""/>
+					<App_Data App="MOD" Name="Image_Aspect_Ratio" Value="800x1200"/>
+				</Metadata>
+				<Content Value="20170716_bet_lev1716_vzmobvmn.jpg"/>
+			</Asset>
+	</Asset>
+</ADI>

@@ -7,7 +7,7 @@ import boto3
 import os, time
 import botocore
 from datetime import datetime
-
+from dateutil import parser
 
 s3 = boto3.resource('s3')
 client = boto3.client('s3')
@@ -17,18 +17,19 @@ before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 def main():
     #need to record information per partner in a local text file
     while 1:
-        startTime = datetime.now()
+        start_time = datetime.now() # I DON'T THINK THIS IS THE RIGHT WAY TO DO THIS, WHAT IF WE GO THROUGH ANOTHER LOOP BEFORE SEEING THE VALIDATION
+                                    # NEED TO GET START TIME FROM FILE, END TIME IS FROM WHEN WE FINISH PROCESSING IT
         watch_dir()
         file_content = pull_from_s3()
         if(file_content):
-            endTime = datetime.now()
-            runTime = endTime - startTime
+            end_time = datetime.now()
             headers = file_content[0].split(",")
             headers.append("run_time")
             info = file_content[1].split(",")
-            info.append(runTime)
-            print(''.join(headers))
-            print(info)
+            start_time = parser.parse(info[len(info)-1])
+            run_time = end_time - start_time
+            info.append(str(run_time.microseconds/100)+" ms")
+            print_info(headers,info)
             #read file to fill variables
             #print out content provider
             #print out filename
@@ -85,13 +86,22 @@ def checkLog():
     try:
         s3.Object('gen3-interns', 'logs/log.txt').load()
     except botocore.exceptions.ClientError as e:
-        #print('404 file not found')
+        print('404 file not found')
         if e.response['Error']['Code'] == "404":
             return False
         else:
             raise
     else:
         return True
+
+def print_info(headers, vals):
+    print("#################<FILE INFO>######################")
+    for i in range(len(headers)):
+        line =headers[i]+": "+vals[i]
+        line = line.replace("\n","")
+        print(line)
+    print("###################################################")
+
 #########################################<END OF FUNCTIONS>################################################
 ## - run main function
 main()
