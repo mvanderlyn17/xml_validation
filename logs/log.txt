@@ -1,2 +1,0 @@
-content_provider,package_name,validity_status,invalid_fields
-NBC,Battleship,Valid,[]
