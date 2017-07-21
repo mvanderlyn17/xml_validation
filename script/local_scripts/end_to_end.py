@@ -11,7 +11,7 @@ from dateutil import parser
 
 s3 = boto3.resource('s3')
 client = boto3.client('s3')
-path_to_watch = "../../xmls/"
+path_to_watch = "../../xmls_in/"
 before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 
 ###############################################<FUNCTIONS>############################################
@@ -54,7 +54,7 @@ def watch_dir():
     if added:
         file = ", ".join(added)
         print("Upload started: "+file)
-        data = open("../../xmls/"+file, 'rb')
+        data = open("../../xmls_in/"+file, 'rb')
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
         print "Upload Complete"
         before = dict ([(f, None) for f in os.listdir (path_to_watch)])
