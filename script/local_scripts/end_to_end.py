@@ -11,7 +11,7 @@ from datetime import datetime
 
 s3 = boto3.resource('s3')
 client = boto3.client('s3')
-path_to_watch = "../../xmls/trigger/"
+path_to_watch = "../../xmls/"
 before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 ###############################################<FUNCTIONS>############################################
 def main():
