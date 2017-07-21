@@ -13,24 +13,29 @@ s3 = boto3.resource('s3')
 client = boto3.client('s3')
 path_to_watch = "../../xmls/"
 before = dict ([(f, None) for f in os.listdir (path_to_watch)])
+
 ###############################################<FUNCTIONS>############################################
 def main():
     #need to record information per partner in a local text file
+    print("Searching for new files...")
     while 1:
-        start_time = datetime.now() # I DON'T THINK THIS IS THE RIGHT WAY TO DO THIS, WHAT IF WE GO THROUGH ANOTHER LOOP BEFORE SEEING THE VALIDATION
-                                    # NEED TO GET START TIME FROM FILE, END TIME IS FROM WHEN WE FINISH PROCESSING IT
-        watch_dir()
-        file_content = pull_from_s3()
-        if(file_content):
+        # I DON'T THINK THIS IS THE RIGHT WAY TO DO THIS, WHAT IF WE GO THROUGH ANOTHER LOOP BEFORE SEEING THE VALIDATION
+        start_time = datetime.now()                            # NEED TO GET START TIME FROM FILE, END TIME IS FROM WHEN WE FINISH PROCESSING IT
+        file_found = watch_dir()
+        #file_content = pull_from_s3()
+        if(file_found):
+            file_content = False
+            print("Processing...")
+            while(not file_content):
+                file_content = pull_from_s3()
+                continue
             end_time = datetime.now()
             headers = file_content[0].split(",")
             headers.append("run_time")
             info = file_content[1].split(",")
-            start_time = parser.parse(info[len(info)-1])
-            print(str(start_time))
-            print(str(end_time))
+            lambda_start_time = parser.parse(info[len(info)-1])
             run_time = end_time - start_time
-            info.append(str(run_time.microseconds/100)+" ms")
+            info.append(str(run_time)+" seconds")
             print_info(headers,info)
             #read file to fill variables
             #print out content provider
@@ -39,10 +44,12 @@ def main():
             #print out what was wrong
             #print out running partners accuracy, score
             #print run time
-        time.sleep(2)
+            print("Searching for new files...")
+        time.sleep(.5)
 def watch_dir():
     global path_to_watch
     global before
+    global start_time
     after = dict ([(f, None) for f in os.listdir (path_to_watch)])
     added = [f for f in after if not f in before]
     removed = [f for f in before if not f in after]
@@ -52,6 +59,8 @@ def watch_dir():
         data = open("../../xmls/"+file, 'rb')
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
         print "Upload Complete"
+        before = dict ([(f, None) for f in os.listdir (path_to_watch)])
+        return True
 
     if removed:
         print "Removed: ", ", ".join (removed)
@@ -88,7 +97,7 @@ def checkLog():
     try:
         s3.Object('gen3-interns', 'logs/log.txt').load()
     except botocore.exceptions.ClientError as e:
-        print('404 file not found')
+        #print('404 file not found')
         if e.response['Error']['Code'] == "404":
             return False
         else:

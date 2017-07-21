@@ -1,2 +1,2 @@
-content_provider,package_name,validity_status,invalid_fields,start_time
-NBC,Battleship,Valid,[],2017-07-21 14:54:53.098860
+content_provider,package_name,validity_status,invalid_fields,lambda_start_time
+NBC,Battleship,Valid,[],2017-07-21 16:48:53.707356
