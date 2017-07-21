@@ -19,11 +19,14 @@ def main():
     while 1:
         startTime = datetime.now()
         watch_dir()
-<<<<<<< HEAD
         file_content = pull_from_s3()
         if(file_content):
+            endTime = datetime.now()
+            runTime = endTime - startTime
             headers = file_content[0].split(",")
+            headers.append("run_time")
             info = file_content[1].split(",")
+            info.append(runTime)
             print(''.join(headers))
             print(info)
             #read file to fill variables
@@ -33,15 +36,6 @@ def main():
             #print out what was wrong
             #print out running partners accuracy, score
             #print run time
-=======
-        x = pull_from_s3()
-        if(x):
-            file = open('../../logs/log.txt', 'a')
-            endTime = datetime.now()
-            runTime = endTime - startTime
-            file.write('\n\nTOTAL RUNTIME: '+ str(runTime) + '\n\n')
-            file.close()
->>>>>>> ac759c4872b6c7787399945b0339542be3b87fa9
         time.sleep(2)
 def watch_dir():
     global path_to_watch
@@ -75,11 +69,8 @@ def pull_from_s3():
             file_headers = file.readline()
             file_content =  file.readline()
             file.close()
-<<<<<<< HEAD
             return [file_headers,file_content]
-=======
-            return True
->>>>>>> ac759c4872b6c7787399945b0339542be3b87fa9
+
         except botocore.exceptions.ClientError as e:
             print('No new validation info')
             if e.response['Error']['Code'] == "404":
