@@ -27,6 +27,8 @@ def main():
             headers.append("run_time")
             info = file_content[1].split(",")
             start_time = parser.parse(info[len(info)-1])
+            print(str(start_time))
+            print(str(end_time))
             run_time = end_time - start_time
             info.append(str(run_time.microseconds/100)+" ms")
             print_info(headers,info)
