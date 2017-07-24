@@ -1,0 +1,2 @@
+content_provider,package_name,validity_status,invalid_fields,lambda_start_time
+nbcuniversal,Battleship_02392_VZ_R_NBC,Valid,[],2017-07-24 19:24:12.394865
