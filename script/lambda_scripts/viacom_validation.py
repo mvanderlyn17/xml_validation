@@ -1,8 +1,8 @@
 from xml.dom import minidom
 from datetime import datetime, date
-xmldoc = minidom.parse('C:\\Users\\sshukla\\Desktop\\AWS Lambda\\Paramount.xml')
+xml_file = minidom.parse('C:\\Users\\sshukla\\Desktop\\AWS Lambda\\Paramount.xml')
 
-package = xmldoc.getElementsByTagName('package')
+package = xml_file.getElementsByTagName('package')
 for node in package:
     packVersion=node.getAttribute('version')
     if packVersion !="":
@@ -14,7 +14,7 @@ for node in package:
 
     #print(packVersion)
 
-itemlist = xmldoc.getElementsByTagName('video')
+itemlist = xml_file.getElementsByTagName('video')
 for node in itemlist:
     alist=node.getElementsByTagName('video_type')
     for a in alist:
@@ -127,8 +127,120 @@ for node in itemlist:
             print(salesstartDate)
         except:
             print('Invalid date')
+    plist = node.getElementsByTagName('episode_short_description')
+    for p in plist:
+        episodeshortdescrip = p.childNodes[0].nodeValue
+        if (len(episodeshortdescrip)<256):
+            t17=1
+            print(episodeshortdescrip)
+    qlist = node.getElementsByTagName('episode_long_description')
+    for q in qlist:
+        episodelongdescrip = q.childNodes[0].nodeValue
+        if (len(episodelongdescrip) < 1024):
+            t18 = 1
+            print(episodelongdescrip)
 
-    if t1==1 and t2==1 and t3==1 and t4==1 and t5==1 and t6==1 and t7==1 and t8==1 and t9==1 and t10==1 and t11==1 and t12==1 and t13==1 and t14==1 and t15==1 and t16==1:
+
+    if t1==1 and t2==1 and t3==1 and t4==1 and t5==1 and t6==1 and t7==1 and t8==1 and t9==1 and t10==1 and t11==1 and t12==1 and t13==1 and t14==1 and t15==1 and t16==1 and t17==1 and t18==1:
         print('xml is valid')
+        msg = 'File is valid!'
+        server.sendmail("testintegrate2017@gmail.com", "michael.vandelryn@verizondigitalmedia.com", msg)
+        server.quit()
+        return ["Valid", []]
     else:
         print('xml is invalid')
+        missing_fields = []
+    if t1 != 1:
+        data = xmlfilename + ” is Missing Package Version\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t2 != 1:
+        data = xmlfilename + ” is having Invalid video type\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t3 != 1:
+        data = xmlfilename + ” is Missing Network name\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t4 != 1:
+        data = xmlfilename + ” is Missing Unique Id series\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t5 != 1:
+        data = xmlfilename + ” is Missing Unique Id season\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t6 != 1:
+        data = xmlfilename + ” is Missing Unique Id episode\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t7 != 1:
+        data = xmlfilename + ” is not numeric.It contains character value\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t8 != 1:
+        data = xmlfilename + ” is Missing Show Type\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t9 != 1:
+        data = xmlfilename + ” is Season Number is not numeric\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t10 != 1:
+        data = xmlfilename + ” is having invalid Date format\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t11 != 1:
+        data = xmlfilename + ” is Missing Valid year format\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t12 != 1:
+        data = xmlfilename + ” does not have mp4 suffix\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t13 != 1:
+        data = xmlfilename + ” does not have scc suffix\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t14 != 1:
+        data = xmlfilename + ” is Missing Valid year format\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t15 != 1:
+        data = xmlfilename + ” does not have jpg suffix\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t16 != 1:
+        data = xmlfilename + ” is Missing correct date format\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t17 != 1:
+        data = xmlfilename + ” is exceeding 256 characters limit\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    if t18 != 1:
+        data = xmlfilename + ” is exceeding 1024 character limit\n\n”
+        missing_fields.append(data)
+        validity_check.append(“Invalid”)
+        wfile.write(data)
+    server.sendmail("testintegrate2017@gmail.com", "traffens@gmu.edu", msg)
+    server.quit()
+    return ['Invalid', missing_fields]
+    return "Finished\n"

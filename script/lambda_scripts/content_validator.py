@@ -285,3 +285,80 @@ class XmlContentValidator:
     #
     # print test1
     # print test2
+
+
+
+
+
+    '''
+def validateViacom(xml_file, xml_file_name):
+# Validates an xml will be split up into 2 functions one for each content provider
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login("testintegrate2017@gmail.com", "Terminator90!")
+    s3_client = boto3.client('s3')
+    r1,r2,r3,r4,r5,r6,r7,r8=0,0,0,0,0,0,0,0
+    itemlist = xml_file.getElementsByTagName('AMS')
+    for s in itemlist:
+        values=(s.attributes['Asset_Class'].value)
+        if values=="package":
+            r1=1
+        if values=="title":
+            r2=1
+        if values=="movie":
+            r3=1
+        if values=="preview":
+            r4=1
+        if values=="poster":
+            r5=1
+        if values=="box cover":
+            r6=1
+        if values=="thumb nail":
+            r7=1
+        if values=="high res":
+            r8=1
+
+    if r1==1 and r2==1 and r3==1 and r4==1 and r5==1 and r6==1 and r7==1 and r8==1:
+        msg = 'File is valid!'
+        server.sendmail("testintegrate2017@gmail.com", "michael.vanderlyn@verizondigitalmedia.com", msg)
+        server.quit()
+        return ["Valid",[]]
+    else:
+        missing_fields = []
+        missing_fields.append('The XML you sent us is invalid for the following reason(s)..  \n\n ')
+        if r1!=1:
+            data=xml_file_name+" is Missing Asset Class" #asset class missing
+            missing_fields.append(data)
+        if r2!=1:
+            data=xml_file_name+" is Missing Title"
+            missing_fields.append(data)
+        if r3!=1:
+            data=xml_file_name+" is Missing Movie"
+            missing_fields.append(data)
+        if r4!=1:
+            data=xml_file_name+" is Missing Preview"
+            missing_fields.append(data)
+        if r5!=1:
+            data=xml_file_name+" is Missing Poster"
+            missing_fields.append(data)
+        if r6!=1:
+            data=xml_file_name+" is Missing Box Cover"
+            missing_fields.append(data)
+        if r7!=1:
+            data=xml_file_name+" is Missing Thumbnail"
+            missing_fields.append(data)
+        if r8!=1:
+            data=xml_file_name+" is Missing High Res"
+            missing_fields.append(data)
+        email =  str('\n'.join([str(x) for x in missing_fields]))
+        server.sendmail("testintegrate2017@gmail.com", "michael.vanderlyn@verizondigitalmedia.com", email)
+        server.quit()
+        del missing_fields[0]
+        return ['Invalid',missing_fields]
+
+
+
+
+
+
+    '''
