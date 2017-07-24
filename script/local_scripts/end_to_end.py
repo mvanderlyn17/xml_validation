@@ -23,28 +23,35 @@ def main():
         start_time = datetime.now()
         watch_info = watch_dir()
         if(watch_info):
-            file_content = False
+            file_content_successes = False
+            file_content_failures = False
             print("Processing...")
-            while(not file_content):
-                file_content = pull_from_s3(watch_info[0],watch_info[1])
-                #print('oh dear')
+            while(not (file_content_successes or file_content_failures)):
+                print("successes: "+str(file_content_successes))
+                print("fialures: "+str(file_content_failures))
+                file_content_successes = pull_from_s3_success(watch_info[0],watch_info[1])
+                file_content_failures = pull_from_s3_failures(watch_info[0],watch_info[1])
                 continue
-            end_time = datetime.now()
-            headers = file_content[0].split(",")
-            headers.append("run_time")
-            info = file_content[1].split(",")
-            lambda_start_time = parser.parse(info[len(info)-1])  #ERROR HERE WHEN INVALID
-            run_time = end_time - start_time
-            info.append(str(run_time)+" seconds")
-            print_info(headers,info)
-            #read file to fill variables
-            #print out content provider
-            #print out filename
-            #print out valid/invalid
-            #print out what was wrong
-            #print out running partners accuracy, score
-            #print run time
-            print("Searching for new files...")
+            if(file_content_successes):
+                end_time = datetime.now()
+                headers = file_content_successes[0].split(",")
+                headers.append("run_time")
+                info = file_content_successes[1].split(",")
+                lambda_start_time = parser.parse(info[len(info)-1]) #issue here
+                run_time = end_time - start_time
+                info.append(str(run_time)+" seconds")
+                print_info(headers,info)
+                print("Searching for new files...")
+            if(file_content_failures):
+                end_time = datetime.now()
+                headers = file_content_failures[0].split(",")
+                headers.append("run_time")
+                info = file_content_failures[1].split(",")
+                lambda_start_time = parser.parse(info[len(info)-1]) #issue here
+                run_time = end_time - start_time
+                info.append(str(run_time)+" seconds")
+                print_info(headers,info)
+                print("Searching for new files...")
         time.sleep(.5)
 def watch_dir():
     global path_to_watch
@@ -69,37 +76,38 @@ def watch_dir():
         s =itemlist[0]
         content_provider=(s.attributes['Value'].value)
         if not(content_provider == 'nbcuniversal'):
-            content_provider = "other"
+            content_provider = "viacom"
+        else:
+            content_provider = "nbc"
         package_name = file.replace(".xml","")
 
 
-
+        print(content_provider)
         os.rename("../../xmls_in/" + file, "../../xmls_out/" + content_provider +"/" + file)
 
         return [content_provider,package_name]
 
     if removed:
-        j=2
-        #print "Removed: ", ", ".join (removed)
+        print "Removed: ", ", ".join (removed)
     before = after
 
 
 
-def pull_from_s3(content_provider,package_name):
-    if(checkLog(package_name)):
+def pull_from_s3_success(content_provider,package_name):
+    if(checkLog('gen3-interns-'+content_provider+'total',''+package_name+'.txt')):
         print('New validation info found')
         try:
-            s3.Bucket('gen3-interns').download_file('logs/'+package_name+'.txt', '../../xmls_out/'+content_provider+'/'+package_name+'.txt') #add LOG to the end
-            #print('Validation info retrieved from s3')
-            client.delete_object(Bucket='gen3-interns', Key ='logs/'+package_name+'.txt')
-            #print('Old validation info deleted from s3')
+            s3.Bucket('gen3-interns-'+content_provider+'total').download_file(''+package_name+'.txt', '../../xmls_out/'+content_provider+'/'+package_name+'.txt') #add LOG to the end
+            print('Validation info retrieved from s3')
+            print('Validation info retrieved from s3, shows a validation success')
+            client.delete_object(Bucket='gen3-interns-'+content_provider+'total', Key ='logs/'+package_name+'.txt')
+            print('Old validation info deleted from s3')
             file = open('../../xmls_out/'+content_provider+'/'+package_name+'.txt') #add LOG to the end
+            #print(file.read())
             file_headers = file.readline()
             file_content =  file.readline()
             file.close()
-            return [file_headers, file_content]
-
-
+            return [file_headers,file_content]
         except botocore.exceptions.ClientError as e:
             print('No new validation info')
             if e.response['Error']['Code'] == "404":
@@ -108,10 +116,30 @@ def pull_from_s3(content_provider,package_name):
             else:
                 raise
 
+def pull_from_s3_failures(content_provider,package_name):
+    if(checkLog('gen3-interns-'+content_provider+'failures',''+package_name+'.txt')):
+        print('New validation info found')
+        try:
+            s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'.txt', '../../xmls_out/'+content_provider+'/'+package_name+'.txt') #New folder for failed xml packages
+            print('Validation info retrieved from s3, shows a validation failure')
+            print('Validation failed info stored in s3')
+            file = open('../../xmls_out/'+content_provider+'/'+package_name+'.txt') #add LOG to the end
+            #print(file.read())
+            file_headers = file.readline()
+            file_content =  file.readline()
+            file.close()
+            return [file_headers,file_content]
+        except botocore.exceptions.ClientError as e:
+            print('No new validation info')
+            if e.response['Error']['Code'] == "404":
+                print("The object does not exist.")
+                return False
+            else:
+                raise
 
-def checkLog(package_name):
+def checkLog(bucket,key):
     try:
-        s3.Object('gen3-interns', 'logs/'+package_name+'.txt').load()
+        s3.Object(bucket, key).load()
     except botocore.exceptions.ClientError as e:
         #print('404 file not found')
         if e.response['Error']['Code'] == "404":
