@@ -1,7 +1,12 @@
 #######################################################################################################
 # End to end local script for internship project 2017                                                 #
-# Programmed by: nylrednaV leahciM                                                                    #
-#                 so sexy                                                                             #
+# Programmed by: Michael Vanderlyn, Tyler Raffesnperger                                               #
+# Purpose:                                                                                            #
+#     Gatekeeper code for gen3 intake of content provider packages. Takes in xml files, sends them to #
+# a lambda function where they are validated and then either the content providers are alerted upon   #
+# a malformed XML, or the XML is properly validated and sent back to the local script which moves the #
+# content provider's package on to the normal gen3 intake process and the file is properly ingested   #
+# into the VDMS system.                                                                               #
 ##################################################<IMPORTS>############################################
 import boto3
 import os, time
@@ -17,7 +22,8 @@ before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 
 ###############################################<FUNCTIONS>############################################
 def main():
-    #need to record information per partner in a local text file
+# Main function runs all sub functions to watch a directory, send files up to lambda and listen
+# until lambda sends back validation info
     print("Searching for new files...")
     while 1:
         start_time = datetime.now()
@@ -54,6 +60,10 @@ def main():
                 print("Searching for new files...")
         time.sleep(.5)
 def watch_dir():
+# listens to the xmls_in folder for new files, or removed files. If a new file is found
+# it will check the content provider and then move the package to a different folder
+# while it waits to be validated
+### Either returns nothing because no new activity was found, or returns the content provider and package name in an array
     global path_to_watch
     global before
     global start_time
@@ -94,6 +104,10 @@ def watch_dir():
 
 
 def pull_from_s3_success(content_provider,package_name):
+# Checks the s3 bucket where successfully validated xmls are for new information
+# if a file is here that means it was validated, and the package is good to go on to
+# the rest of the gen3 ingest process.
+### Returns either an array with the file headers and the file content found in the field, or false
     if(checkLog('gen3-interns-'+content_provider+'total',''+package_name+'.txt')):
         print('New validation info found')
         try:
@@ -117,6 +131,10 @@ def pull_from_s3_success(content_provider,package_name):
                 raise
 
 def pull_from_s3_failures(content_provider,package_name):
+# Checks the s3 bucket for failed xml files. If any packages xml is here that means
+# that the xml didn't pass validation and that the content provider and our team must be alerted
+# this function also moves the package to a seperate location while it waits for our team to deal with it
+### Returns either an array with the file headers and the file content found in the field, or false
     if(checkLog('gen3-interns-'+content_provider+'failures',''+package_name+'.txt')):
         print('New validation info found')
         try:
@@ -138,6 +156,8 @@ def pull_from_s3_failures(content_provider,package_name):
                 raise
 
 def checkLog(bucket,key):
+# Helper function to check a bucket for the specific filename (key) to see if the valication
+# process is done yet. returns a boolean that is True if the key was found in the bucket
     try:
         s3.Object(bucket, key).load()
     except botocore.exceptions.ClientError as e:
@@ -150,6 +170,7 @@ def checkLog(bucket,key):
         return True
 
 def print_info(headers, vals):
+# Helper function to print out information for console. Makes data visualization easier
     print("#################<FILE INFO>######################")
     for i in range(len(headers)):
         line =headers[i]+": "+vals[i]
