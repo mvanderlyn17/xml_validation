@@ -34,15 +34,13 @@ def main():
             while(not (file_content_successes or file_content_failures)):
                 file_content_successes = pull_from_s3_success(watch_info[0],watch_info[1])
                 file_content_failures = pull_from_s3_failures(watch_info[0],watch_info[1])
-                print("successes: "+str(file_content_successes))
-                print("fialures: "+str(file_content_failures))
                 continue
             if(file_content_successes):
                 end_time = datetime.now()
                 headers = file_content_successes[0].split(",")
                 headers.append("run_time")
                 info = file_content_successes[1].split(",")
-                lambda_start_time = parser.parse(info[len(info)-1]) #issue here
+                lambda_start_time = parser.parse(info[len(info)-1])
                 run_time = end_time - start_time
                 info.append(str(run_time)+" seconds")
                 print_info(headers,info)
@@ -52,7 +50,7 @@ def main():
                 headers = file_content_failures[0].split(",")
                 headers.append("run_time")
                 info = file_content_failures[1].split(",")
-                lambda_start_time = parser.parse(info[len(info)-1]) #issue here
+                lambda_start_time = parser.parse(info[len(info)-1])
                 run_time = end_time - start_time
                 info.append(str(run_time)+" seconds")
                 print_info(headers,info)
@@ -74,12 +72,8 @@ def watch_dir():
         print("Upload started: "+file)
         data = open("../../xmls_in/"+file, 'rb')
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
-        print "Upload Complete"
+        print("Upload Complete")
         before = dict ([(f, None) for f in os.listdir (path_to_watch)])
-        #print(data)
-        #print(info)
-        #print(file.read().decode('utf-8'))
-
         xml_file = minidom.parse("../../xmls_in/"+file)
         itemlist = xml_file.getElementsByTagName('App_Data')
         s =itemlist[0]
@@ -89,19 +83,12 @@ def watch_dir():
         else:
             content_provider = "nbc"
         package_name = file.replace(".xml","")
-
-
         print(content_provider)
         os.rename("../../xmls_in/" + file, "../../xmls_out/" + content_provider +"/" + file)
-
         return [content_provider,package_name]
-
     if removed:
         print "Removed: ", ", ".join (removed)
     before = after
-
-
-
 def pull_from_s3_success(content_provider,package_name):
 # Checks the s3 bucket where successfully validated xmls are for new information
 # if a file is here that means it was validated, and the package is good to go on to
@@ -111,7 +98,6 @@ def pull_from_s3_success(content_provider,package_name):
         print('New validation info found')
         try:
             s3.Bucket('gen3-interns-'+content_provider+'total').download_file(''+package_name+'.txt', '../../xmls_out/'+content_provider+'/'+package_name+'.txt') #add LOG to the end
-            print('Validation info retrieved from s3')
             print('Validation info retrieved from s3, shows a validation success')
             client.delete_object(Bucket='gen3-interns-'+content_provider+'total', Key ='logs/'+package_name+'.txt')
             print('Old validation info deleted from s3')
@@ -128,7 +114,6 @@ def pull_from_s3_success(content_provider,package_name):
                 return False
             else:
                 raise
-
 def pull_from_s3_failures(content_provider,package_name):
 # Checks the s3 bucket for failed xml files. If any packages xml is here that means
 # that the xml didn't pass validation and that the content provider and our team must be alerted
@@ -153,7 +138,6 @@ def pull_from_s3_failures(content_provider,package_name):
                 return False
             else:
                 raise
-
 def checkLog(bucket,key):
 # Helper function to check a bucket for the specific filename (key) to see if the valication
 # process is done yet. returns a boolean that is True if the key was found in the bucket
@@ -167,7 +151,6 @@ def checkLog(bucket,key):
             raise
     else:
         return True
-
 def print_info(headers, vals):
 # Helper function to print out information for console. Makes data visualization easier
     print("#################<FILE INFO>######################")
@@ -176,7 +159,6 @@ def print_info(headers, vals):
         line = line.replace("\n","")
         print(line)
     print("###################################################")
-
 #########################################<END OF FUNCTIONS>################################################
-## - run main function
+## Runs main function
 main()
