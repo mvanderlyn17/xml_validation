@@ -6,10 +6,10 @@ for node in package:
     packVersion=node.getAttribute('version')
     if packVersion !="":
         t1=1
-        print (t1)
+        #print (t1)
     else:
         t1=0
-        print (t1)
+        #print (t1)
 
     #print(packVersion)
 
@@ -152,94 +152,98 @@ for node in itemlist:
     if t1 != 1:
         data = xmlfilename + ' is Missing Package Version'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t2 != 1:
         data = xmlfilename + ' is having Invalid video type'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t3 != 1:
         data = xmlfilename + ' is Missing Network name'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t4 != 1:
         data = xmlfilename + ' is Missing Unique Id series'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t5 != 1:
         data = xmlfilename + ' is Missing Unique Id season'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t6 != 1:
         data = xmlfilename + ' is Missing Unique Id episode'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t7 != 1:
         data = xmlfilename + ' is not numeric.It contains character value'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t8 != 1:
         data = xmlfilename + ' is Missing Show Type'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t9 != 1:
         data = xmlfilename + ' is Season Number is not numeric'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t10 != 1:
         data = xmlfilename + ' is having invalid Date format'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t11 != 1:
         data = xmlfilename + ' is Missing Valid year format'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t12 != 1:
         data = xmlfilename + ' does not have mp4 suffix'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t13 != 1:
         data = xmlfilename + ' does not have scc suffix'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t14 != 1:
         data = xmlfilename + ' is Missing Valid year format'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t15 != 1:
         data = xmlfilename + ' does not have jpg suffix'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t16 != 1:
         data = xmlfilename + ' is Missing correct date format'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t17 != 1:
         data = xmlfilename + ' is exceeding 256 characters limit'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
     if t18 != 1:
         data = xmlfilename + ' is exceeding 1024 character limit'
         missing_fields.append(data)
-        validity_check.append(“Invalid”)
-        wfile.write(data)
-    server.sendmail("testintegrate2017@gmail.com", "traffens@gmu.edu", msg)
+        #validity_check.append(“Invalid”)
+        #wfile.write(data)
+
+
+
+    email =  str('\n'.join([str(x) for x in missing_fields]))
+    server.sendmail("testintegrate2017@gmail.com", "michael.vanderlyn@verizondigitalmedia.com", email)
     server.quit()
-    return ['Invalid', missing_fields]
-    return "Finished\n"
+    del missing_fields[0]
+    return ['Invalid',missing_fields]
