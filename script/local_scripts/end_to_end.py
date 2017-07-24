@@ -83,7 +83,7 @@ def watch_dir():
         if not(content_provider == 'nbcuniversal'):
             content_provider = "viacom"
         else:
-            content_provider = "nbc"
+            content_provider = "nbcuniversal"
         package_name = file.replace(".xml","")
         print(content_provider)
         os.rename("../../xmls_in/" + file, "../../xmls_out/" + content_provider +"/" + file)
