@@ -34,6 +34,8 @@ def main():
             while(not (file_content_successes or file_content_failures)):
                 file_content_successes = pull_from_s3_success(watch_info[0],watch_info[1])
                 file_content_failures = pull_from_s3_failures(watch_info[0],watch_info[1])
+                print("success: "+str(file_content_successes))
+                print("failures: "+str(file_content_failures))
                 continue
             if(file_content_successes):
                 end_time = datetime.now()
