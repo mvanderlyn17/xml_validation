@@ -32,6 +32,7 @@ def main():
             file_content_failures = False
             print("Processing...")
             while(not (file_content_successes or file_content_failures)):
+                print ('nope')
                 file_content_successes = pull_from_s3_success(watch_info[0],watch_info[1])
                 file_content_failures = pull_from_s3_failures(watch_info[0],watch_info[1])
                 continue
@@ -91,12 +92,14 @@ def watch_dir():
             os.makedirs('../../xmls_in/'+package_name)
         os.rename("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
         if not os.path.exists('../../xmls_out/'+content_provider+'/'+package_name):
+            os.makedirs('../../xmls_out/'+content_provider+'/'+package_name)
             os.rename("../../xmls_in/"+package_name,'../../xmls_out/'+content_provider+'/'+package_name)
         else:
             print("Error file already processed")
         return [content_provider,package_name]
     if removed:
-        print "Removed: ", ", ".join (removed)
+        kk = "we dont need to know if removed"
+        #print "Removed: ", ", ".join (removed)
     before = after
 def pull_from_s3_success(content_provider,package_name):
 # Checks the s3 bucket where successfully validated xmls are for new information
@@ -133,7 +136,8 @@ def pull_from_s3_failures(content_provider,package_name):
         print('New validation info found for failure')
         try:
             s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-            os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
+
+            os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
             print('Validation info retrieved from s3, shows a validation failure')
             print('Validation failed info stored in s3')
             file = open('../../xmls_out/'+content_provider+'/invalid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
