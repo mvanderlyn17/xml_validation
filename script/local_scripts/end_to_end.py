@@ -144,9 +144,9 @@ def pull_from_s3_failures(content_provider,package_name):
         print('New validation info found for failure')
         try:
             s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-            print('\n\n\n\n\DELETING '+content_provider+package_name+'\n')
+            #print('DELETING '+content_provider+package_name)
             #s3.Object('gen3-interns-'+content_provider+'failures', ''+package_name+'_logs.txt').delete()
-            s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
+            #s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
             #client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
             try:
                 os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
