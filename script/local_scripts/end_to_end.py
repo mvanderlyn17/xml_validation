@@ -123,7 +123,6 @@ def pull_from_s3_success(content_provider,package_name):
             client.delete_object(Bucket='gen3-interns-'+content_provider+'total', Key =''+package_name+'_logs.txt')
             print('Old validation info deleted from s3')
             file = open('../../xmls_out/'+content_provider+'/valid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-            #print(file.read())
             file_headers = file.readline()
             file_content =  file.readline()
             file.close()
@@ -144,10 +143,8 @@ def pull_from_s3_failures(content_provider,package_name):
         print('New validation info found for failure')
         try:
             s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-            #print('DELETING '+content_provider+package_name)
-            #s3.Object('gen3-interns-'+content_provider+'failures', ''+package_name+'_logs.txt').delete()
-            #s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
-            #client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
+            print('\n\n\n\n\DELETING '+content_provider+package_name+'\n')
+            s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
             try:
                 os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
             except:
@@ -157,7 +154,6 @@ def pull_from_s3_failures(content_provider,package_name):
             print('Validation info retrieved from s3, shows a validation failure')
             print('Validation failed info stored in s3')
             file = open('../../xmls_out/'+content_provider+'/invalid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-            #print(file.read())
             file_headers = file.readline()
             file_content =  file.readline()
             file.close()
@@ -175,7 +171,6 @@ def checkLog(bucket,key):
     try:
         s3.Object(bucket, key).load()
     except botocore.exceptions.ClientError as e:
-        #print('404 file not found')
         if e.response['Error']['Code'] == "404":
             return False
         else:
