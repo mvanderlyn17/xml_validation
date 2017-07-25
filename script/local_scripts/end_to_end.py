@@ -11,6 +11,7 @@
 import boto3
 import os, time
 import botocore
+import shutil
 from datetime import datetime
 from dateutil import parser
 from xml.dom import minidom
@@ -91,12 +92,15 @@ def watch_dir():
             os.makedirs('../../xmls_in/'+package_name)
         os.rename("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
         if not os.path.exists('../../xmls_out/'+content_provider+'/'+package_name):
+            os.makedirs('../../xmls_out/'+content_provider+'/'+package_name)
             os.rename("../../xmls_in/"+package_name,'../../xmls_out/'+content_provider+'/'+package_name)
         else:
-            print("Error file already processed")
+            #print("Error file already processed")
+            i = 'not necessary'
         return [content_provider,package_name]
     if removed:
-        print "Removed: ", ", ".join (removed)
+        kk = "we dont need to know if removed"
+        #print "Removed: ", ", ".join (removed)
     before = after
 def pull_from_s3_success(content_provider,package_name):
 # Checks the s3 bucket where successfully validated xmls are for new information
@@ -107,7 +111,14 @@ def pull_from_s3_success(content_provider,package_name):
         print('New validation info found for success')
         try:
             s3.Bucket('gen3-interns-'+content_provider+'total').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-            os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/valid/'+package_name) #moves package folder into success or failure
+            try:
+                os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/valid/'+package_name) #moves package folder into success or failure
+            except:
+                shutil.rmtree('../../xmls_out/'+content_provider+'/valid/'+package_name)
+                os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/valid/'+package_name) #moves package folder into success or failure
+            #os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/valid/'+package_name) #moves package folder into success or failure
+
+
             print('Validation info retrieved from s3, shows a validation success')
             client.delete_object(Bucket='gen3-interns-'+content_provider+'total', Key =''+package_name+'_logs.txt')
             print('Old validation info deleted from s3')
@@ -133,7 +144,12 @@ def pull_from_s3_failures(content_provider,package_name):
         print('New validation info found for failure')
         try:
             s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-            os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
+            try:
+                os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
+            except:
+                shutil.rmtree('../../xmls_out/'+content_provider+'/invalid/'+package_name)
+                os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
+
             print('Validation info retrieved from s3, shows a validation failure')
             print('Validation failed info stored in s3')
             file = open('../../xmls_out/'+content_provider+'/invalid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
