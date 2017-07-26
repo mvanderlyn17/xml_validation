@@ -12,6 +12,7 @@ import boto3
 import os, time
 import botocore
 import shutil
+import sys
 from datetime import datetime
 from dateutil import parser
 from xml.dom import minidom
@@ -32,9 +33,12 @@ def main():
             file_content_successes = False
             file_content_failures = False
             print("Processing...")
+            count = 0
             while(not (file_content_successes or file_content_failures)):
                 file_content_successes = pull_from_s3_success(watch_info[0],watch_info[1])
-                file_content_failures = pull_from_s3_failures(watch_info[0],watch_info[1])
+                file_content_failures = pull_from_s3_failures(watch_info[0],watch_info[1], count)
+                count +=1
+                print(count)
                 continue
             if(file_content_successes):
                 end_time = datetime.now()
@@ -88,19 +92,20 @@ def watch_dir():
             content_provider = "nbcuniversal"
         package_name = file.replace(".xml","")
         #Make a folder with package name
-        if not os.path.exists('../../xmls_in/'+package_name):
-            os.makedirs('../../xmls_in/'+package_name)
-        os.rename("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
         if not os.path.exists('../../xmls_out/'+content_provider+'/'+package_name):
+            os.makedirs('../../xmls_in/'+package_name)
+            print('made local file in xml_in')
+            os.rename("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
+            print('moved file inside xml')
             os.makedirs('../../xmls_out/'+content_provider+'/'+package_name)
             os.rename("../../xmls_in/"+package_name,'../../xmls_out/'+content_provider+'/'+package_name)
+            print('made local file in xml_in')
         else:
-            #print("Error file already processed")
-            i = 'not necessary'
+            print("Error: "+package_name+" already processed")
+            sys.exit()
         return [content_provider,package_name]
     if removed:
-        kk = "we dont need to know if removed"
-        #print "Removed: ", ", ".join (removed)
+        print "Removed: ", ", ".join (removed)
     before = after
 def pull_from_s3_success(content_provider,package_name):
 # Checks the s3 bucket where successfully validated xmls are for new information
@@ -117,8 +122,6 @@ def pull_from_s3_success(content_provider,package_name):
                 shutil.rmtree('../../xmls_out/'+content_provider+'/valid/'+package_name)
                 os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/valid/'+package_name) #moves package folder into success or failure
             #os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/valid/'+package_name) #moves package folder into success or failure
-
-
             print('Validation info retrieved from s3, shows a validation success')
             client.delete_object(Bucket='gen3-interns-'+content_provider+'total', Key =''+package_name+'_logs.txt')
             print('Old validation info deleted from s3')
@@ -134,37 +137,40 @@ def pull_from_s3_success(content_provider,package_name):
                 return False
             else:
                 raise
-def pull_from_s3_failures(content_provider,package_name):
+def pull_from_s3_failures(content_provider,package_name, count):
 # Checks the s3 bucket for failed xml files. If any packages xml is here that means
 # that the xml didn't pass validation and that the content provider and our team must be alerted
 # this function also moves the package to a seperate location while it waits for our team to deal with it
 ### Returns either an array with the file headers and the file content found in the field, or false
     if(checkLog('gen3-interns-'+content_provider+'failures',''+package_name+'_logs.txt')):
-        print('New validation info found for failure')
-        try:
-            s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-            print('\n\n\n\n\DELETING '+content_provider+package_name+'\n')
+        if(count <=2):
+            #maybe check if logs are from before current time
+            print("Deleted old logs")
             s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
+        else:
+            print('New validation info found for failure')
             try:
-                os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
-            except:
-                shutil.rmtree('../../xmls_out/'+content_provider+'/invalid/'+package_name)
-                os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
-
-            print('Validation info retrieved from s3, shows a validation failure')
-            print('Validation failed info stored in s3')
-            file = open('../../xmls_out/'+content_provider+'/invalid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-            file_headers = file.readline()
-            file_content =  file.readline()
-            file.close()
-            return [file_headers,file_content]
-        except botocore.exceptions.ClientError as e:
-            print('No new validation info')
-            if e.response['Error']['Code'] == "404":
-                print("The object does not exist.")
-                return False
-            else:
-                raise
+                s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
+                #s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
+                try:
+                    os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
+                except:
+                    shutil.rmtree('../../xmls_out/'+content_provider+'/invalid/'+package_name)
+                    os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
+                    print('Validation info retrieved from s3, shows a validation failure')
+                    print('Validation failed info stored in s3')
+                    file = open('../../xmls_out/'+content_provider+'/invalid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
+                    file_headers = file.readline()
+                    file_content =  file.readline()
+                    file.close()
+                    return [file_headers,file_content]
+            except botocore.exceptions.ClientError as e:
+                print('No new validation info')
+                if e.response['Error']['Code'] == "404":
+                    print("The object does not exist.")
+                    return False
+                else:
+                    raise
 def checkLog(bucket,key):
 # Helper function to check a bucket for the specific filename (key) to see if the valication
 # process is done yet. returns a boolean that is True if the key was found in the bucket

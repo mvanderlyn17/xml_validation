@@ -1,2 +1,2 @@
 content_provider,package_name,validity_status,invalid_fields,lambda_start_time
-nbcuniversal,Battleship_invalid,Invalid,Battleship_invalid.xml is Missing Package,2017-07-25 15:46:13.263521
+nbcuniversal,Battleship_invalid,Invalid,Battleship_invalid.xml is Missing Package,2017-07-26 17:21:43.490866
