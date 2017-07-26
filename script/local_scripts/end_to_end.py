@@ -100,8 +100,8 @@ def watch_dir():
             print("Error: "+package_name+" already in xml_out, please remove")
             sys.exit()
         return [content_provider,package_name]
-    if removed:
-        print "Removed: ", ", ".join (removed)
+    #if removed:
+        #print "Removed: ", ", ".join (removed)
     before = after
 def pull_from_s3_success(content_provider,package_name):
 # Checks the s3 bucket where successfully validated xmls are for new information
