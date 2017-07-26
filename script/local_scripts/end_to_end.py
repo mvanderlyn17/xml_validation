@@ -38,7 +38,6 @@ def main():
                 file_content_successes = pull_from_s3_success(watch_info[0],watch_info[1])
                 file_content_failures = pull_from_s3_failures(watch_info[0],watch_info[1], count)
                 count +=1
-                print(count)
                 continue
             if(file_content_successes):
                 end_time = datetime.now()
@@ -101,7 +100,7 @@ def watch_dir():
             os.rename("../../xmls_in/"+package_name,'../../xmls_out/'+content_provider+'/'+package_name)
             print('made local file in xml_in')
         else:
-            print("Error: "+package_name+" already processed")
+            print("Error: "+package_name+" already in xml_out, please remove")
             sys.exit()
         return [content_provider,package_name]
     if removed:
@@ -113,9 +112,12 @@ def pull_from_s3_success(content_provider,package_name):
 # the rest of the gen3 ingest process.
 ### Returns either an array with the file headers and the file content found in the field, or false
     if(checkLog('gen3-interns-'+content_provider+'total',''+package_name+'_logs.txt')):
-        print('New validation info found for success')
+        print('New validation info found for a valid XML')
         try:
             s3.Bucket('gen3-interns-'+content_provider+'total').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
+            if(os.path.exists('../../xmls_out/'+content_provider+'/invalid/'+package_name)):
+                shutil.rmtree('../../xmls_out/'+content_provider+'/invalid/'+package_name)
+                #maybe make this so it moves the package, then writes over the xml
             try:
                 os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/valid/'+package_name) #moves package folder into success or failure
             except:
@@ -145,20 +147,19 @@ def pull_from_s3_failures(content_provider,package_name, count):
     if(checkLog('gen3-interns-'+content_provider+'failures',''+package_name+'_logs.txt')):
         if(count <=2):
             #maybe check if logs are from before current time
-            print("Deleted old logs")
             s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
         else:
-            print('New validation info found for failure')
+            print('New validation info found for an invalid XML')
             try:
                 s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-                #s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
+                if(os.path.exists('../../xmls_out/'+content_provider+'/valid/'+package_name)):
+                    shutil.rmtree('../../xmls_out/'+content_provider+'/valid/'+package_name)
                 try:
                     os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
                 except:
                     shutil.rmtree('../../xmls_out/'+content_provider+'/invalid/'+package_name)
                     os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
                     print('Validation info retrieved from s3, shows a validation failure')
-                    print('Validation failed info stored in s3')
                     file = open('../../xmls_out/'+content_provider+'/invalid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
                     file_headers = file.readline()
                     file_content =  file.readline()

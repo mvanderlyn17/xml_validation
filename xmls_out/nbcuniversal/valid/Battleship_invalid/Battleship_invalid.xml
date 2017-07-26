@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ADI>
 	<Metadata>
-		<AMS Asset_Class="package" Asset_ID="Battleship_Package" Asset_Name="Battleship" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<AMS Asset_Class="packag" Asset_ID="Battleship_Package" Asset_Name="Battleship" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
 		<App_Data App="MOD" Name="Provider_Content_Tier" Value="nbcuniversal"/>
 		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
 	</Metadata>
