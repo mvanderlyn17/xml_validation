@@ -93,12 +93,9 @@ def watch_dir():
         #Make a folder with package name
         if not os.path.exists('../../xmls_out/'+content_provider+'/'+package_name):
             os.makedirs('../../xmls_in/'+package_name)
-            print('made local file in xml_in')
             os.rename("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
-            print('moved file inside xml')
             os.makedirs('../../xmls_out/'+content_provider+'/'+package_name)
             os.rename("../../xmls_in/"+package_name,'../../xmls_out/'+content_provider+'/'+package_name)
-            print('made local file in xml_in')
         else:
             print("Error: "+package_name+" already in xml_out, please remove")
             sys.exit()
