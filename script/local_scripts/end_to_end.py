@@ -87,7 +87,7 @@ def watch_dir(input_file = ""):
         if(not input_file):
             file = ", ".join(added)
         else:
-            file = input_file
+            file = input_file+'.xml'
         print("Upload started: "+file)
         data = open("../../xmls_in/"+file, 'rb')
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)

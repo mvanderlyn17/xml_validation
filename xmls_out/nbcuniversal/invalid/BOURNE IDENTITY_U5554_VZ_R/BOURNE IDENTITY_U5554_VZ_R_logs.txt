@@ -1,2 +1,2 @@
 content_provider,package_name,validity_status,invalid_fields,lambda_start_time
-nbcuniversal,BOURNE IDENTITY_U5554_VZ_R,Invalid,BOURNE IDENTITY_U5554_VZ_R.xml is Missing Box Cover; BOURNE IDENTITY_U5554_VZ_R.xml is Missing Thumbnail; BOURNE IDENTITY_U5554_VZ_R.xml is Missing High Res; No 4K Scc file or No sub captions or SCC file does not have .scc extension ,2017-07-27 15:44:17.426618
+nbcuniversal,BOURNE IDENTITY_U5554_VZ_R,Invalid,BOURNE IDENTITY_U5554_VZ_R.xml is Missing Box Cover; BOURNE IDENTITY_U5554_VZ_R.xml is Missing Thumbnail; BOURNE IDENTITY_U5554_VZ_R.xml is Missing High Res; No 4K Scc file or No sub captions or SCC file does not have .scc extension ,2017-07-27 18:44:02.449539
