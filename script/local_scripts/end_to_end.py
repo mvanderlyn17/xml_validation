@@ -13,7 +13,7 @@ import os, time
 import botocore
 import shutil
 import sys
-from datetime import datetime
+from datetime import tzinfo, timedelta, datetime
 from dateutil import parser
 from xml.dom import minidom
 from xml.etree import ElementTree
@@ -22,6 +22,8 @@ client = boto3.client('s3')
 path_to_watch = "../../xmls_in/"
 before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 ###############################################<FUNCTIONS>############################################
+
+######################################################################################################
 def main():
 # Main function runs all sub functions to watch a directory, send files up to lambda and listen
 # until lambda sends back validation info
@@ -33,12 +35,18 @@ def main():
             file_content_successes = False
             file_content_failures = False
             print("Processing...")
-            count = 0
+            wait_time = 0
             while(not (file_content_successes or file_content_failures)):
-                file_content_successes = pull_from_s3_success(watch_info[0],watch_info[1])
-                file_content_failures = pull_from_s3_failures(watch_info[0],watch_info[1], count)
-                count +=1
-                continue
+                wait_time +=1
+                if(wait_time < 100):
+                    file_content_successes = pull_from_s3_success(watch_info[0],watch_info[1])
+                    file_content_failures = pull_from_s3_failures(watch_info[0],watch_info[1], watch_info[2])
+                    continue
+                else:
+                    print("Error: No response from lambda, request timed out")
+                    print("Searching for new files...")
+                    break
+
             if(file_content_successes):
                 end_time = datetime.now()
                 headers = file_content_successes[0].split(",")
@@ -67,7 +75,6 @@ def watch_dir():
 ### Either returns nothing because no new activity was found, or returns the content provider and package name in an array
     global path_to_watch
     global before
-    global start_time
     after = dict ([(f, None) for f in os.listdir (path_to_watch)])
     added = [f for f in after if not f in before]
     removed = [f for f in before if not f in after]
@@ -97,9 +104,12 @@ def watch_dir():
             os.makedirs('../../xmls_out/'+content_provider+'/'+package_name)
             os.rename("../../xmls_in/"+package_name,'../../xmls_out/'+content_provider+'/'+package_name)
         else:
-            print("Error: "+package_name+" already in xml_out, please remove")
-            sys.exit()
-        return [content_provider,package_name]
+            print("Error: "+package_name+" already in xml_out, removing please try again")
+            shutil.rmtree('../../xmls_out/'+content_provider+'/'+package_name)
+            print("Searching for new files...")
+            return None
+        obj = s3.Object(bucket_name='gen3-interns-trigger', key=file)
+        return [content_provider,package_name,obj.last_modified]
     #if removed:
         #print "Removed: ", ", ".join (removed)
     before = after
@@ -136,19 +146,26 @@ def pull_from_s3_success(content_provider,package_name):
                 return False
             else:
                 raise
-def pull_from_s3_failures(content_provider,package_name, count):
+def pull_from_s3_failures(content_provider,package_name, start_time):
 # Checks the s3 bucket for failed xml files. If any packages xml is here that means
 # that the xml didn't pass validation and that the content provider and our team must be alerted
 # this function also moves the package to a seperate location while it waits for our team to deal with it
 ### Returns either an array with the file headers and the file content found in the field, or false
     if(checkLog('gen3-interns-'+content_provider+'failures',''+package_name+'_logs.txt')):
-        if(count <=2):
-            #maybe check if logs are from before current time
+        obj = s3.Object(bucket_name='gen3-interns-'+content_provider+'failures', key=''+package_name+'_logs.txt')
+        last_mod = obj.last_modified
+        if(last_mod < start_time):
             s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
+            print("deleted old validation info")
         else:
             print('New validation info found for an invalid XML')
             try:
-                s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
+                if(os.path.exists('../../xmls_out/'+content_provider+'/'+package_name+'/')):
+                    s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
+                else:
+                    print("Error missing folder: "+'../../xmls_out/'+content_provider+'/'+package_name+'/')
+                    print("Please try resubmitting")
+                    main()
                 if(os.path.exists('../../xmls_out/'+content_provider+'/valid/'+package_name)):
                     shutil.rmtree('../../xmls_out/'+content_provider+'/valid/'+package_name)
                 try:

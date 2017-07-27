@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package version="film2.0">
+  <provider></provider>
+  <video>
+    <video_type>TV</video_type>
+    <network_name>Comedy Central</network_name>
+    <unique_id_series>COMEDYCENTRAL_TOSH0</unique_id_series>
+    <unique_id_season>COMEDYCENTRAL_TOSH0_SEASON_9B</unique_id_season>
+    <unique_id_episode>COMEDYCENTRAL_TOSH0_914_HD</unique_id_episode>
+    <episode_production_number>914</episode_production_number>
+    <series_name>Tosh.0</series_name>
+    <title>June 27, 2017 - Singing Math Teacher</title>
+    <container_position_episode>14</container_position_episode>
+    <season_number>9</season_number>
+	<release_date>2017-06-27</release_date>
+    <original_release_year>2017</original_release_year>
+    <genres>
+    	   
+	   <genre>Comedy</genre>
+	   
+    </genres>
+    <ratings>
+      <rating system="us-tv">TV-14</rating>
+    </ratings>
+    <copyright>2017 Comedy Partners</copyright>
+    <series_description>Hosted by comedian Daniel Tosh, Tosh.0 delves into all aspects of the Internet, from the ingenious to the medically inadvisable. With his acid tongue and blunt delivery, Tosh has established himself as an expert on the best worst things on the Web.</series_description>
+    <season_description>After eight seasons of trawling the internet for the wild, the bizarre and the ill-advised, Daniel Tosh is back for a ninth round. Join him as he tracks down YouTube eccentrics and trashes the trends that are captivating social media.</season_description>
+    <episode_short_description>Daniel unveils some responsible drinking games and reminds us why alligators are dangerous, and a former math teacher channels his inner rock star.</episode_short_description>
+    <episode_long_description>Daniel unveils some responsible drinking games and reminds us why alligators are dangerous, and a former math teacher channels his inner rock star.</episode_long_description>
+    <contributors>
+          
+          <contributor>Tosh, Daniel</contributor>
+          
+    </contributors>
+    <data_file>
+	  <video_file>	  
+        <file_name>COMEDYCENTRAL_TOSH0_914_HD_V2.mpg</file_name>
+        <runtime>00:21:16</runtime>
+	  </video_file>
+	  <captions>
+	  	  <file_name>COMEDYCENTRAL_TOSH0_914_HD_V2.scc</file_name>
+     	  <caption_format>SCC</caption_format>
+	      <caption_language>Eng</caption_language>
+	  </captions>
+	  <image>
+	        <file_name>COMEDYCENTRAL_TOSH0_SEASON_9B.jpg</file_name>
+			<image_format>jpg</image_format>
+			<image_size>800x1200</image_size>
+		</image>
+    </data_file>
+    <preview starttime="120" />
+    <products>
+		<product>
+			<territory>US</territory>
+			<sales_start_date>2017-06-28</sales_start_date>
+			<language>English</language>
+                  <price_exception>Standard</price_exception>
+		</product>
+    </products>
+  </video>
+</package>

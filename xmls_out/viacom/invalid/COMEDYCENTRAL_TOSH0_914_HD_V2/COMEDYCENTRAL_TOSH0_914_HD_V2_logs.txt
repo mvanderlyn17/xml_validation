@@ -1,2 +1,2 @@
 content_provider,package_name,validity_status,invalid_fields,lambda_start_time
-nbcuniversal,Battleship_invalid,Valid,[],2017-07-26 17:30:58.583405
+viacom,COMEDYCENTRAL_TOSH0_914_HD_V2,Invalid,[],2017-07-27 14:41:03.743480
