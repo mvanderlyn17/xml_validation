@@ -81,18 +81,24 @@ def watch_dir(input_file = ""):
         after = dict ([(f, None) for f in os.listdir (path_to_watch)])
         added = [f for f in after if not f in before]
         removed = [f for f in before if not f in after]
-        file = None
+        #file = None
     else:
         added = True
     if added:
+        time.sleep(.1)
         for filename in os.listdir("../../xmls_in/"):
+            #print(filename)
             if filename.endswith(".xml"):
-                if(not input_file):
-                    file = ", ".join(added)
-                else:
-                    file = input_file
+                #if(not input_file):
+                    #file = ", ".join(added)
+                #else:
+                #print('MUNNY')
+                file = filename
+                #file = ", ".join(added)
             else:
                 continue
+
+
 
 
 
@@ -101,9 +107,13 @@ def watch_dir(input_file = ""):
     #    else:
     #        file = input_file
 
-
         print("Upload started: "+file)
-        data = open("../../xmls_in/"+file, 'rb')
+        try:
+            data = open("../../xmls_in/"+file, 'rb')
+        except:
+            time.sleep(2)
+            data = open("../../xmls_in/"+file, 'rb')
+
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
         print("Upload Complete")
         before = dict ([(f, None) for f in os.listdir (path_to_watch)])
@@ -141,7 +151,7 @@ def watch_dir(input_file = ""):
         else:
             print("Error: "+package_name+" already in xml_out, removing and trying again")
             shutil.rmtree('../../xmls_out/'+content_provider+'/'+package_name)
-            main(package_name)
+        #this one fucks everything    main(package_name)
         obj = s3.Object(bucket_name='gen3-interns-trigger', key=file)
         return [content_provider,package_name,obj.last_modified]
     #if removed:
@@ -177,7 +187,7 @@ def pull_from_s3_success(content_provider,package_name):
             file_headers = file.readline()
             file_content =  file.readline()
             file.close()
-            os.remove('../../xmls_in/'+package_name+'.xml')
+                                                #    os.remove('../../xmls_in/'+package_name+'.xml')  Dont need it anymore maybe...
             return [file_headers,file_content]
         except botocore.exceptions.ClientError as e:
             print('No new validation info')
@@ -203,12 +213,34 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
             print('New validation info found for an invalid XML')
             try:
                 if(os.path.exists('../../xmls_out/'+content_provider+'/'+package_name+'/')):
+
                     s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-                    print("file downloaded")
-                else:
+                    print("File Downloaded")
+                    s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
+
+                    try:
+                        os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
+                    except:
+                        shutil.rmtree('../../xmls_out/'+content_provider+'/invalid/'+package_name)
+                        os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
+
+                    print('Validation info retrieved from s3, shows a validation failure')
+                    file = open('../../xmls_out/'+content_provider+'/invalid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
+                    file_headers = file.readline()
+                    file_content =  file.readline()
+                    file.close()
+                    return [file_headers,file_content]
+
+                '''else:
                     print("Error missing folder: "+'../../xmls_out/'+content_provider+'/'+package_name+'/')
                     print("Trying again")
                     main(package_name)
+
+
+
+                this is all fucked
+
+
                 if(os.path.exists('../../xmls_out/'+content_provider+'/valid/'+package_name)):
                     shutil.rmtree('../../xmls_out/'+content_provider+'/valid/'+package_name)
                 try:
@@ -220,9 +252,13 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
                     file = open('../../xmls_out/'+content_provider+'/invalid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
                     file_headers = file.readline()
                     file_content =  file.readline()
-                    file.close()
+                    file.close()'''
+
+
+
+
                     #########################os.remove('../../xmls_in/'+package_name+'.xml')
-                    return [file_headers,file_content]
+                    #return [file_headers,file_content]
             except botocore.exceptions.ClientError as e:
                 print('No new validation info')
                 if e.response['Error']['Code'] == "404":

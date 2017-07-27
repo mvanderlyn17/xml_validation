@@ -1,2 +1,0 @@
-content_provider,package_name,validity_status,invalid_fields,lambda_start_time
-viacom,VH1_BLACKINKCREWCHICAGO_SPECIAL_HD,Invalid,VH1_BLACKINKCREWCHICAGO_SPECIAL_HD.xml is Missing Show Type; VH1_BLACKINKCREWCHICAGO_SPECIAL_HD.xml Does Not Have mpg Suffix,2017-07-27 18:43:06.084534
