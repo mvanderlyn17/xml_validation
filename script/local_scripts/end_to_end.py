@@ -17,6 +17,7 @@ from datetime import tzinfo, timedelta, datetime
 from dateutil import parser
 from xml.dom import minidom
 from xml.etree import ElementTree
+from shutil import copyfile
 s3 = boto3.resource('s3')
 client = boto3.client('s3')
 path_to_watch = "../../xmls_in/"
@@ -24,13 +25,14 @@ before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 ###############################################<FUNCTIONS>############################################
 
 ######################################################################################################
-def main():
+def main(input_file = None):
 # Main function runs all sub functions to watch a directory, send files up to lambda and listen
 # until lambda sends back validation info
+    print(input_file)
     print("Searching for new files...")
     while 1:
         start_time = datetime.now()
-        watch_info = watch_dir()
+        watch_info = watch_dir(input_file)
         if(watch_info):
             file_content_successes = False
             file_content_failures = False
@@ -68,18 +70,24 @@ def main():
                 print_info(headers,info)
                 print("Searching for new files...")
         time.sleep(.5)
-def watch_dir():
+def watch_dir(input_file = ""):
 # listens to the xmls_in folder for new files, or removed files. If a new file is found
 # it will check the content provider and then move the package to a different folder
 # while it waits to be validated
 ### Either returns nothing because no new activity was found, or returns the content provider and package name in an array
-    global path_to_watch
-    global before
-    after = dict ([(f, None) for f in os.listdir (path_to_watch)])
-    added = [f for f in after if not f in before]
-    removed = [f for f in before if not f in after]
+    if(not input_file):
+        global path_to_watch
+        global before
+        after = dict ([(f, None) for f in os.listdir (path_to_watch)])
+        added = [f for f in after if not f in before]
+        removed = [f for f in before if not f in after]
+    else:
+        added = True
     if added:
-        file = ", ".join(added)
+        if(not input_file):
+            file = ", ".join(added)
+        else:
+            file = input_file
         print("Upload started: "+file)
         data = open("../../xmls_in/"+file, 'rb')
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
@@ -100,14 +108,13 @@ def watch_dir():
         #Make a folder with package name
         if not os.path.exists('../../xmls_out/'+content_provider+'/'+package_name):
             os.makedirs('../../xmls_in/'+package_name)
-            os.rename("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
+            copyfile("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
             os.makedirs('../../xmls_out/'+content_provider+'/'+package_name)
             os.rename("../../xmls_in/"+package_name,'../../xmls_out/'+content_provider+'/'+package_name)
         else:
-            print("Error: "+package_name+" already in xml_out, removing please try again")
+            print("Error: "+package_name+" already in xml_out, removing and trying again")
             shutil.rmtree('../../xmls_out/'+content_provider+'/'+package_name)
-            print("Searching for new files...")
-            return None
+            main(package_name)
         obj = s3.Object(bucket_name='gen3-interns-trigger', key=file)
         return [content_provider,package_name,obj.last_modified]
     #if removed:
@@ -138,6 +145,7 @@ def pull_from_s3_success(content_provider,package_name):
             file_headers = file.readline()
             file_content =  file.readline()
             file.close()
+            os.remove('../../xmls_in/'+package_name+'.xml')
             return [file_headers,file_content]
         except botocore.exceptions.ClientError as e:
             print('No new validation info')
@@ -145,6 +153,8 @@ def pull_from_s3_success(content_provider,package_name):
                 print("The object does not exist.")
                 return False
             else:
+                #raise
+                print("Error Occured in downloading file, please try again")
                 raise
 def pull_from_s3_failures(content_provider,package_name, start_time):
 # Checks the s3 bucket for failed xml files. If any packages xml is here that means
@@ -162,10 +172,11 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
             try:
                 if(os.path.exists('../../xmls_out/'+content_provider+'/'+package_name+'/')):
                     s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
+                    print("file downloaded")
                 else:
                     print("Error missing folder: "+'../../xmls_out/'+content_provider+'/'+package_name+'/')
-                    print("Please try resubmitting")
-                    main()
+                    print("Trying again")
+                    main(package_name)
                 if(os.path.exists('../../xmls_out/'+content_provider+'/valid/'+package_name)):
                     shutil.rmtree('../../xmls_out/'+content_provider+'/valid/'+package_name)
                 try:
@@ -178,6 +189,7 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
                     file_headers = file.readline()
                     file_content =  file.readline()
                     file.close()
+                    os.remove('../../xmls_in/'+package_name+'.xml')
                     return [file_headers,file_content]
             except botocore.exceptions.ClientError as e:
                 print('No new validation info')
