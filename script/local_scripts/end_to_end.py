@@ -17,7 +17,6 @@ from datetime import tzinfo, timedelta, datetime
 from dateutil import parser
 from xml.dom import minidom
 from xml.etree import ElementTree
-from shutil import copyfile
 s3 = boto3.resource('s3')
 client = boto3.client('s3')
 path_to_watch = "../../xmls_in/"
@@ -28,11 +27,14 @@ before = dict ([(f, None) for f in os.listdir (path_to_watch)])
 def main(input_file = None):
 # Main function runs all sub functions to watch a directory, send files up to lambda and listen
 # until lambda sends back validation info
-    print(input_file)
-    print("Searching for new files...")
+    if(not input_file):
+        print("Searching for new files...")
     while 1:
         start_time = datetime.now()
-        watch_info = watch_dir(input_file)
+        if(input_file):
+            watch_info = watch_dir(input_file+'.xml')
+        else:
+            watch_info = watch_dir()
         if(watch_info):
             file_content_successes = False
             file_content_failures = False
@@ -84,10 +86,13 @@ def watch_dir(input_file = ""):
     else:
         added = True
     if added:
+        if (len(added)>1):
+            print("Currently can only process one file at once, please first file processed, please resubmit other files")
+            added = [added[0]]
         if(not input_file):
             file = ", ".join(added)
         else:
-            file = input_file+'.xml'
+            file = input_file
         print("Upload started: "+file)
         data = open("../../xmls_in/"+file, 'rb')
         s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
@@ -108,7 +113,7 @@ def watch_dir(input_file = ""):
         #Make a folder with package name
         if not os.path.exists('../../xmls_out/'+content_provider+'/'+package_name):
             os.makedirs('../../xmls_in/'+package_name)
-            copyfile("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
+            os.rename("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
             os.makedirs('../../xmls_out/'+content_provider+'/'+package_name)
             os.rename("../../xmls_in/"+package_name,'../../xmls_out/'+content_provider+'/'+package_name)
         else:
@@ -145,7 +150,6 @@ def pull_from_s3_success(content_provider,package_name):
             file_headers = file.readline()
             file_content =  file.readline()
             file.close()
-            os.remove('../../xmls_in/'+package_name+'.xml')
             return [file_headers,file_content]
         except botocore.exceptions.ClientError as e:
             print('No new validation info')
@@ -189,7 +193,6 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
                     file_headers = file.readline()
                     file_content =  file.readline()
                     file.close()
-                    os.remove('../../xmls_in/'+package_name+'.xml')
                     return [file_headers,file_content]
             except botocore.exceptions.ClientError as e:
                 print('No new validation info')
