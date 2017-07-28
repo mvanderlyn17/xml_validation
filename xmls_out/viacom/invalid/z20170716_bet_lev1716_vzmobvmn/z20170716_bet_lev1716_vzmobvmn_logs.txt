@@ -1,0 +1,2 @@
+content_provider,package_name,validity_status,invalid_fields,lambda_start_time
+viacom,z20170716_bet_lev1716_vzmobvmn,Invalid,z20170716_bet_lev1716_vzmobvmn.xml is Missing Package; or Content Provider Not Supported,2017-07-28 18:27:18.693284

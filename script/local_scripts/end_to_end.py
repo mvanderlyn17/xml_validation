@@ -13,6 +13,7 @@ import os, time
 import botocore
 import shutil
 import sys
+import json
 from datetime import tzinfo, timedelta, datetime
 from dateutil import parser
 from xml.dom import minidom
@@ -54,12 +55,15 @@ def main(input_file = None):
             if(file_content_successes):
                 end_time = datetime.now()
                 headers = file_content_successes[0].split(",")
-                headers.append("run_time")
+                headers.append("run_time_in_seconds")
                 info = file_content_successes[1].split(",")
                 lambda_start_time = parser.parse(info[len(info)-1])
                 run_time = end_time - start_time
-                info.append(str(run_time)+" seconds")
+                info.append(str(run_time))
                 print_info(headers,info)
+                #data = buildJSON(headers,info)
+                #json_data = json.dumps(data)
+                #print(json_data)
                 print("Searching for new files...")
             if(file_content_failures):
                 end_time = datetime.now()
@@ -68,8 +72,11 @@ def main(input_file = None):
                 info = file_content_failures[1].split(",")
                 lambda_start_time = parser.parse(info[len(info)-1])
                 run_time = end_time - start_time
-                info.append(str(run_time)+" seconds")
+                info.append(str(run_time))
                 print_info(headers,info)
+                #data = buildJSON(headers,info)
+                #json_data = json.dumps(data)
+                #print(json_data)
                 print("Searching for new files...")
         time.sleep(.5)
 def watch_dir(input_file = ""):
@@ -203,6 +210,13 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
                     return False
                 else:
                     raise
+def buildJSON(headers,vals):
+    data = {}
+    x = 0
+    for header in headers:
+        data[header] = vals[x].replace("\n","")
+        x+=1
+    return data
 def checkLog(bucket,key):
 # Helper function to check a bucket for the specific filename (key) to see if the valication
 # process is done yet. returns a boolean that is True if the key was found in the bucket

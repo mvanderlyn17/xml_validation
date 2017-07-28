@@ -1,0 +1,2 @@
+content_provider,package_name,validity_status,invalid_fields,lambda_start_time
+viacom,z20170712_vh1_blackinkchitrailer_vzmobvmn,Invalid,z20170712_vh1_blackinkchitrailer_vzmobvmn.xml is Missing Package; or Content Provider Not Supported,2017-07-28 18:27:15.346261
