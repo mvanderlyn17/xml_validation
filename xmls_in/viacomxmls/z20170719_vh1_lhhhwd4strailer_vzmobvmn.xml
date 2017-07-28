@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE ADI SYSTEM "ADI.DTD">
+<ADI>
+	<Metadata>
+		<AMS Asset_Name="LHHHWD4Strailer_EEE_VH1_2017-07-19Package" Provider="MSV_VH1_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-19 Love &amp; Hip Hop Hollywood Season 4: Supertrailer_package" Creation_Date="2017-07-18" Provider_ID="vh1fod.com" Asset_Class="package" Asset_ID="XPPK0000000000658057"/>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Asset_Name="LHHHWD4Strailer_EEE_VH1_2017-07-19Title" Provider="MSV_VH1_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-19 Love &amp; Hip Hop Hollywood Season 4: Supertrailer_title" Creation_Date="2017-07-18" Provider_ID="vh1fod.com" Asset_Class="title" Asset_ID="XPTL0000000000658057"/>
+			<App_Data App="MOD" Name="Type" Value="title"/>
+			<App_Data App="MOD" Name="Title" Value="LHH HWD 4 Supertrailer"/>
+			<App_Data App="MOD" Name="Title_Sort_Name" Value="LHH HWD 4 Strailer"/>
+			<App_Data App="MOD" Name="Title_Brief" Value="LHH HWD 4 Strailer"/>
+			<App_Data App="MOD" Name="Episode_ID" Value="EEE"/>
+			<App_Data App="MOD" Name="Season" Value="4"/>
+			<App_Data App="MOD" Name="Summary_Long" Value="Catch this SUPERTRAILER for the premiere of Love &amp; Hip Hop Hollywood, premiering Monday, July 25th at 8p/7c. Presented by VH1."/>
+			<App_Data App="MOD" Name="Summary_Medium" Value="Catch this SUPERTRAILER for the premiere of Love &amp; Hip Hop Hollywood, premiering Monday, July 25th at 8p/7c. Presented by VH1."/>
+			<App_Data App="MOD" Name="Summary_Short" Value="Catch this SUPERTRAILER for the premiere of Love &amp; Hip Hop Hollywood, premiering Monday, July 25th at 8p/7c. Presented by VH1."/>
+			<App_Data App="MOD" Name="Season_Description" Value=""/>
+			<App_Data App="MOD" Name="Rating" Value="TV-14"/>
+			<App_Data App="MOD" Name="Closed_Captioning" Value="N"/>
+			<App_Data App="MOD" Name="Display_Run_Time" Value="00:06"/>
+			<App_Data App="MOD" Name="Run_Time" Value="00:06:01"/>
+			<App_Data App="MOD" Name="Year" Value="2017"/>
+			<App_Data App="MOD" Name="Category" Value="Flex View/Flex View TV"/>			
+			<App_Data App="MOD" Name="Genre" Value="Reality TV"/>
+			<App_Data App="MOD" Name="Original_Air_Date" Value=""/>
+			<App_Data App="MOD" Name="Licensing_Window_Start" Value="2017-07-19T00:00:00"/>
+			<App_Data App="MOD" Name="Licensing_Window_End" Value="2017-11-29T23:59:59"/>
+			<App_Data App="MOD" Name="Billing_ID" Value="00000"/>
+			<App_Data App="MOD" Name="Provider_QA_Contact" Value="DL_Digital_VOD_Ops@viacom.com"/>
+			<App_Data App="MOD" Name="Ad_Content_ID" Value="43726_0_45393"/>
+			<App_Data App="MOD" Name="Series_Name" Value="Love &amp; Hip Hop Hollywood"/>
+			<App_Data App="MOD" Name="Series_Description" Value=""/>
+			<App_Data App="MOD" Name="Episode_Name" Value="Love &amp; Hip Hop Hollywood Season 4: Supertrailer"/>
+			<App_Data App="MOD" Name="Show_Type" Value="Other"/>
+			<App_Data App="MOD" Name="HD_Rights" Value="Y"/>
+			<App_Data App="MOD" Name="NielsenClientID" Value="us-400235"/>
+			<App_Data App="MOD" Name="NielsenVideoCensus" Value="c03"/>
+			<App_Data App="MOD" Name="NielsenCensusCategoryID" Value="Love &amp; Hip Hop Hollywood"/>
+			<App_Data App="MOD" Name="ComscoreID" Value="6059083"/>
+			<App_Data App="MOD" Name="Cue_Points" Value=""/>
+
+		</Metadata>
+			<Asset>
+				<Metadata>
+					<AMS Asset_Name="LHHHWD4Strailer_EEE_VH1_2017-07-19Movie" Provider="MSV_VH1_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-19 Love &amp; Hip Hop Hollywood Season 4: Supertrailer_movie" Creation_Date="2017-07-18" Provider_ID="vh1fod.com" Asset_Class="movie" Asset_ID="XPMV0000000000658057"/>
+					<App_Data App="MOD" Name="Type" Value="movie"/>
+					<App_Data App="MOD" Name="Audio_Type" Value="Stereo"/>
+					<App_Data App="MOD" Name="HD_Rights" Value="Y"/>
+					<App_Data App="MOD" Name="Bit_Rate" Value=""/>
+					<App_Data App="MOD" Name="Content_FileSize" Value=""/>
+					<App_Data App="MOD" Name="Content_CheckSum" Value=""/>					
+					<App_Data App="MOD" Name="AdBreaks" Value="00:00:02:00, 00:00:02:00"/>
+				</Metadata>
+				<Content Value="20170719_vh1_lhhhwd4strailer_vzmobvmn.mpg"/>
+			</Asset>
+			<Asset>
+				<Metadata>
+					<AMS Asset_Name="LHHHWD4Strailer_EEE_VH1_2017-07-19Poster" Provider="MSV_VH1_FOD" Product="FOD" Version_Major="1" Version_Minor="0" Description="2017-07-19 Love &amp; Hip Hop Hollywood Season 4: Supertrailer_poster" Creation_Date="2017-07-18" Provider_ID="vh1fod.com" Asset_Class="poster" Asset_ID="XPPO0000000000658057"/>
+					<App_Data App="MOD" Name="Type" Value="poster"/>
+					<App_Data App="MOD" Name="Content_FileSize" Value=""/>
+					<App_Data App="MOD" Name="Content_CheckSum" Value=""/>
+					<App_Data App="MOD" Name="Image_Aspect_Ratio" Value="800x1200"/>
+				</Metadata>
+				<Content Value="20170719_vh1_lhhhwd4strailer_vzmobvmn.jpg"/>
+			</Asset>
+	</Asset>
+</ADI>

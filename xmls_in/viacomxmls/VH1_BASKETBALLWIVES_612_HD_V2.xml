@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package version="film2.0">
+  <provider></provider>
+  <video>
+    <video_type>TV</video_type>
+    <network_name>VH1</network_name>
+    <unique_id_series>VH1_BASKETBALLWIVES</unique_id_series>
+    <unique_id_season>VH1_BASKETBALLWIVES_SEASON_6</unique_id_season>
+    <unique_id_episode>VH1_BASKETBALLWIVES_612_HD</unique_id_episode>
+    <episode_production_number>612</episode_production_number>
+    <series_name>Basketball Wives</series_name>
+    <title>Episode 12</title>
+    <container_position_episode>13</container_position_episode>
+    <season_number>6</season_number>
+	<release_date>2017-07-10</release_date>
+    <original_release_year>2017</original_release_year>
+    <genres>
+    	   
+	   <genre>Reality TV</genre>
+	   
+    </genres>
+    <ratings>
+      <rating system="us-tv">TV-14</rating>
+    </ratings>
+    <copyright>Viacom Media Networks, a division of Viacom International Inc.</copyright>
+    <series_description>From L.A. to Palm Springs to New York and Miami, &quot;Basketball Wives&quot; has never been hotter as the new recruits and the O.G.s join forces and butt heads on the most spectacular, most explosive, most-heart wrenching season yet.  </series_description>
+    <season_description>From L.A. to Palm Springs to New York and Miami, &quot;Basketball Wives&quot; has never been hotter as the new recruits and the O.G.s join forces and butt heads on the most spectacular, most explosive, most-heart wrenching season yet.  </season_description>
+    <episode_short_description>After the altercation with Jackie and Evelyn, the group is fractured. Tami hands over her &quot;momager&quot; roll when her daughter Jazz gets signed to a record label. An uninvited guest makes an appearance at Saniy&apos;yah&apos;s party.</episode_short_description>
+    <episode_long_description>After the altercation with Jackie and Evelyn, the group is fractured. Tami hands over her &quot;momager&quot; roll when her daughter Jazz gets signed to a record label. An uninvited guest makes an appearance at Saniy&apos;yah&apos;s party.</episode_long_description>
+    <contributors>
+    </contributors>
+    <data_file>
+	  <video_file>	  
+        <file_name>VH1_BASKETBALLWIVES_612_HD.</file_name>
+        <runtime>00:41:52</runtime>
+	  </video_file>
+	  <captions>
+	  	  <file_name>VH1_BASKETBALLWIVES_612_HD.scc</file_name>
+     	  <caption_format>SCC</caption_format>
+	      <caption_language>Eng</caption_language>
+	  </captions>
+	  <image>
+	        <file_name>VH1_BASKETBALLWIVES_SEASON_6.jpg</file_name>
+			<image_format>jpg</image_format>
+			<image_size>800x1200</image_size>
+		</image>
+    </data_file>
+    <preview starttime="120" />
+    <products>
+		<product>
+			<territory>US</territory>
+			<sales_start_date>2017-07-11</sales_start_date>
+			<language>English</language>
+                  <price_exception>Standard</price_exception>
+		</product>
+    </products>
+  </video>
+</package>

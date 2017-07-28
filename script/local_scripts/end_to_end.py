@@ -84,7 +84,7 @@ def watch_dir(input_file = ""):
         added = [f for f in after if not f in before]
         removed = [f for f in before if not f in after]
     else:
-        added = True
+        added = [input_file]
     if added:
         if (len(added)>1):
             print("Currently can only process one file at once, please first file processed, please resubmit other files")
@@ -113,7 +113,7 @@ def watch_dir(input_file = ""):
         #Make a folder with package name
         if not os.path.exists('../../xmls_out/'+content_provider+'/'+package_name):
             os.makedirs('../../xmls_in/'+package_name)
-            os.rename("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #move file into folder
+            os.rename("../../xmls_in/" + file, "../../xmls_in/" + package_name +"/" + file) #copy to new folder
             os.makedirs('../../xmls_out/'+content_provider+'/'+package_name)
             os.rename("../../xmls_in/"+package_name,'../../xmls_out/'+content_provider+'/'+package_name)
         else:
@@ -150,6 +150,7 @@ def pull_from_s3_success(content_provider,package_name):
             file_headers = file.readline()
             file_content =  file.readline()
             file.close()
+            #delete old copy in xmls_in
             return [file_headers,file_content]
         except botocore.exceptions.ClientError as e:
             print('No new validation info')
@@ -193,6 +194,7 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
                     file_headers = file.readline()
                     file_content =  file.readline()
                     file.close()
+                    #delete old copy in xmls_in
                     return [file_headers,file_content]
             except botocore.exceptions.ClientError as e:
                 print('No new validation info')

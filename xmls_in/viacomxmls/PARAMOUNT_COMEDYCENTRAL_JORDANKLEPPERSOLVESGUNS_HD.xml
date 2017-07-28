@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package version="film2.0">
+  <provider></provider>
+  <video>
+    <video_type>TV</video_type>
+    <network_name>Comedy Central</network_name>
+    <unique_id_series>COMEDYCENTRAL_JORDANKLEPPERSOLVESGUNS</unique_id_series>
+    <unique_id_season>COMEDYCENTRAL_JORDANKLEPPERSOLVESGUNS_HD</unique_id_season>
+    <unique_id_episode>PARAMOUNT_COMEDYCENTRAL_JORDANKLEPPERSOLVESGUNS_HD</unique_id_episode>
+    <episode_production_number>Special</episode_production_number>
+    <series_name>Jordan Klepper Solves Guns</series_name>
+	<show_type>Movie</show_type>
+    <title>Jordan Klepper Solves Guns</title>
+    <container_position_episode></container_position_episode>
+    <season_number>0</season_number>
+	<release_date>2017-06-11</release_date>
+    <original_release_year>2017</original_release_year>
+    <genres>
+       
+	   <genre>Comedy</genre>
+	   
+    </genres>
+    <ratings>
+      <rating system="us-tv">TV-MA</rating>
+    </ratings>
+    <copyright></copyright>
+    <series_description>America is divided - but that&apos;s not stopping cocksure ideologue, Jordan Klepper, from solving America&apos;s most divisive issue: guns.</series_description>
+    <season_description>America is divided - but that&apos;s not stopping cocksure ideologue, Jordan Klepper, from solving America&apos;s most divisive issue: guns.</season_description>
+    <episode_short_description>America is divided - but that&apos;s not stopping cocksure ideologue, Jordan Klepper, from solving America&apos;s most divisive issue: guns.</episode_short_description>
+    <episode_long_description>America is divided - but that&apos;s not stopping cocksure ideologue, Jordan Klepper, from solving America&apos;s most divisive issue: guns. While understanding the gun debate, Jordan has pancakes with Cory Booker; goes glamping with the Georgia Militia; gets an MRI to analyze the political brain; shoots big guns with a former Special Ops trainer; and even hires a lobbyist to try and sway the mind of his conservative cousin. Anything to complete the very doable task of solving guns.</episode_long_description>
+	<actors_display>Jordan Klepper, Jordan Klepper, Todd Bieber, Steve Bodow, Kirsten Ames, Diane Fitzgerald</actors_display>
+    <actors>
+          
+          <actor>Klepper, Jordan</actor>
+          
+          
+          <actor>Klepper, Jordan</actor>
+          
+          
+          <actor>Bieber, Todd</actor>
+          
+          
+          <actor>Bodow, Steve</actor>
+          
+          
+          <actor>Ames, Kirsten</actor>
+          
+          
+          <actor>Fitzgerald, Diane</actor>
+          
+    </actors>
+    <directors>
+          
+          <director>Bieber, Todd</director>
+          
+    </directors>	
+    <data_file>
+	  <video_file>	  
+        <file_name>PARAMOUNT_COMEDYCENTRAL_JORDANKLEPPERSOLVESGUNS_HD.</file_name>
+        <runtime>00:50:45</runtime>
+	  </video_file>
+	  <captions>
+	  	  <file_name>PARAMOUNT_COMEDYCENTRAL_JORDANKLEPPERSOLVESGUNS_HD.scc</file_name>
+     	  <caption_format>SCC</caption_format>
+	      <caption_language>Eng</caption_language>
+	  </captions>
+	  <image>
+	        <file_name>COMEDYCENTRAL_JORDANKLEPPERSOLVESGUNS_HD.jpg</file_name>
+			<image_format>jpg</image_format>
+			<image_size>800x1200</image_size>
+		</image>
+    </data_file>
+    <preview starttime="" />
+    <products>
+		<product>
+			<territory>US</territory>
+			<sales_start_date>2017-06-13</sales_start_date>
+			<rental_start_date></rental_start_date>
+			<rental_end_date></rental_end_date>
+			<language></language>
+		</product>
+    </products>
+  </video>
+</package>

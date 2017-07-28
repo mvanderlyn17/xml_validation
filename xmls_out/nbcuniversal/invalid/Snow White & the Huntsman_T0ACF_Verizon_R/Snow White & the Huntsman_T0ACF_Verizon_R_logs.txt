@@ -1,0 +1,2 @@
+content_provider,package_name,validity_status,invalid_fields,lambda_start_time
+nbcuniversal,Snow White & the Huntsman_T0ACF_Verizon_R,Invalid,Snow White & the Huntsman_T0ACF_Verizon_R.xml is Missing Box Cover; Snow White & the Huntsman_T0ACF_Verizon_R.xml is Missing Thumbnail; Snow White & the Huntsman_T0ACF_Verizon_R.xml is Missing High Res; No 4K Scc file or No sub captions or SCC file does not have .scc extension ,2017-07-28 13:00:51.798746

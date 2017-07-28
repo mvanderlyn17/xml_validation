@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package version="film2.0">
+  <provider></provider>
+  <video>
+    <video_type>TV</video_type>
+    <network_name>VH1</network_name>
+    <unique_id_series>VH1_BLACKINKCREW</unique_id_series>
+    <unique_id_season>VH1_BLACKINKCREWCHICAGO_SEASON_3</unique_id_season>
+    <unique_id_episode>VH1_BLACKINKCREWCHICAGO_SPECIAL_HD</unique_id_episode>
+    <episode_production_number>Special</episode_production_number>
+    <series_name>Black Ink Crew</series_name>
+    <title>Behind The Ink</title>
+    <container_position_episode>1</container_position_episode>
+    <season_number>3</season_number>
+	<release_date>2017-07-12</release_date>
+    <original_release_year>2017</original_release_year>
+    <genres>
+    	   
+	   <genre>Reality TV</genre>
+	   
+    </genres>
+    <ratings>
+      <rating system="us-tv">TV-14</rating>
+    </ratings>
+    <copyright>Viacom Media Networks, a division of Viacom International Inc.</copyright>
+    <series_description>The third season of Black Ink Crew: Chicago explodes with more drama and sexier tattoos than ever before. The pressure is on and the hustle is real for this close-knit group of friends who are trying to make it in one of the roughest cities in America.</series_description>
+    <season_description>The third season of Black Ink Crew: Chicago explodes with more drama and sexier tattoos than ever before. The pressure is on and the hustle is real for this close-knit group of friends who are trying to make it in one of the roughest cities in America.</season_description>
+    <episode_short_description>Hosted by &quot;Black Ink Crew: New York&quot; fan-favorite Sky, this behind-the-scenes guide will include never before seen interviews and reactions to the biggest OMG moments from the New York and Chicago casts.</episode_short_description>
+    <episode_long_description>Hosted by &quot;Black Ink Crew: New York&quot; fan-favorite Sky, this behind-the-scenes guide will include never before seen interviews and reactions to the biggest OMG moments from the New York and Chicago casts.</episode_long_description>
+    <contributors>
+    </contributors>
+    <data_file>
+	  <video_file>	  
+        <file_name>VH1_BLACKINKCREWCHICAGO_SPECIAL_HD.</file_name>
+        <runtime>00:35:39</runtime>
+	  </video_file>
+	  <captions>
+	  	  <file_name>VH1_BLACKINKCREWCHICAGO_SPECIAL_HD.scc</file_name>
+     	  <caption_format>SCC</caption_format>
+	      <caption_language>Eng</caption_language>
+	  </captions>
+	  <image>
+	        <file_name>VH1_BLACKINKCREWCHICAGO_SEASON_3.jpg</file_name>
+			<image_format>jpg</image_format>
+			<image_size>800x1200</image_size>
+		</image>
+    </data_file>
+    <preview starttime="120" />
+    <products>
+		<product>
+			<territory>US</territory>
+			<sales_start_date>2017-07-13</sales_start_date>
+			<language>English</language>
+                  <price_exception>Standard</price_exception>
+		</product>
+    </products>
+  </video>
+</package>

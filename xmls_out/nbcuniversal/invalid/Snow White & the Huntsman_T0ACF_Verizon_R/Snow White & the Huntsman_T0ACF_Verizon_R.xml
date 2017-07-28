@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ADI>
+	<Metadata>
+		<AMS Asset_ID="Snow_White_&amp; the_Huntsman_-_Extended_Edition_Package" Asset_Name="Snow_White_&amp; the_Huntsman_-_Extended_Edition" Creation_Date="2016-10-24" Description="Snow_White_&amp; the_Huntsman_-_Extended_Edition" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<App_Data App="MOD" Name="Provider_Content_Tier" Value="nbcuniversal"/>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+	<Metadata>
+		<AMS Asset_Class="title" Asset_ID="Snow_White_&amp; the_Huntsman_-_Extended_Edition_Title" Asset_Name="Snow_White_&amp; the_Huntsman_-_Extended_Edition_T" Creation_Date="2016-10-24" Description="Snow_White_&amp; the_Huntsman_-_Extended_Edition" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<App_Data App="MOD" Name="Is4K" Value="Y"/>
+		<App_Data App="MOD" Name="Run_Time" Value="02:11:00"/>
+		<App_Data App="MOD" Name="Display_Run_Time" Value="02:11"/>
+		<App_Data App="MOD" Name="Type" Value="title"/>
+		<App_Data App="MOD" Name="Title_Brief" Value="Snow White &amp; the Huntsman - Extended Edition"/>
+		<App_Data App="MOD" Name="Title" Value="Snow White &amp; the Huntsman - Extended Edition"/>
+		<App_Data App="MOD" Name="Summary_Short" Value="In this epic action-adventure, Kristen Stewart plays the only person in the land fairer than the evil queen (Academy Award®-winner Charlize Theron) who is out to destroy her."/>
+		<App_Data App="MOD" Name="Summary_Long" Value="In this epic action-adventure, Kristen Stewart plays the only person in the land fairer than the evil queen (Academy Award®-winner Charlize Theron) who is out to destroy her. But what the wicked ruler never imagined is that the young woman she wants dead has been training in the art of war with a huntsman (Chris Hemsworth) who was dispatched to kill her. A breathtaking new vision of a legendary tale, Snow White and the Huntsman also stars Ian McShane, Toby Jones, Sam Claflin and Academy Award®-nominee Bob Hoskins."/>
+		<App_Data App="MOD" Name="Series_Name" Value="Snow White &amp; the Huntsman - Extended Edition"/>
+		<App_Data App="MOD" Name="Billing_ID" Value="12345"/>
+		<App_Data App="MOD" Name="Preview_Period" Value="0"/>
+		<App_Data App="MOD" Name="Rating" Value="PG-13"/>
+		<App_Data App="MOD" Name="Genre" Value="Action &amp; Adventure"/>
+		<App_Data App="MOD" Name="Genre" Value="Sci-Fi &amp; Fantasy"/>
+		<App_Data App="MOD" Name="Genre" Value="Drama"/>
+		<App_Data App="MOD" Name="Category" Value="All"/>
+		<App_Data App="MOD" Name="Suggested_Price" Value="0.00"/>
+		<App_Data App="MOD" Name="Licensing_Window_End" Value=""/>
+		<App_Data App="MOD" Name="Licensing_Window_Start" Value=""/>
+		<App_Data App="MOD" Name="Provider_QA_Contact" Value="ecdmc@nbcuni.com"/>
+		<App_Data App="MOD" Name="Closed_Captioning" Value="Y"/>
+		<App_Data App="MOD" Name="Show_Type" Value="Series"/>
+		<App_Data App="MOD" Name="Year" Value="2012"/>
+		<App_Data App="MOD" Name="Title_Sort_Name" Value="Snow White &amp; the Huntsman - Extended Edition"/>
+		<App_Data App="MOD" Name="Advisories" Value=""/>
+		<App_Data App="MOD" Name="Episode_Name" Value="Snow White &amp; the Huntsman - Extended Edition"/>
+		<App_Data App="MOD" Name="Episode_ID" Value="T0ACF"/>
+		<App_Data App="MOD" Name="Season_Number" Value=""/>
+   		<App_Data App="MOD" Name="Genre_Display" Value="Action &amp; Adventure"/>
+		<App_Data App="MOD" Name="Original_Air_Date" Value="2012-06-01"/>
+		<App_Data App="MOD" Name="Studio" Value=""/>
+		<App_Data App="MOD" Name="Studio_Name" Value="Universal Studios"/>
+		<App_Data App="MOD" Name="Viewing_Can_Be_Resumed" Value="Yes"/>
+		<App_Data App="MOD" Name="Display_as_Last_Chance" Value="7"/>
+		<App_Data App="MOD" Name="Display_As_New" Value="4"/>
+		<App_Data App="MOD" Name="Ad_Content_ID" Value=""/>
+		<App_Data App="MOD" Name="4K_SDR_VideoFile" Value="T0ACF_235LB_TXM_SDR_EN-US.mov"/>
+		<App_Data App="MOD" Name="4K_HDR_VideoFile" Value="T0ACF_235LB_TXM_HDR_EN-US.mov"/>
+		<App_Data App="MOD" Name="4K_SCCFile" Value="T0ACF_CCA_EN-US.cin"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Asset_Class="movie" Asset_ID="Snow_White_&amp; the_Huntsman_-_Extended_Edition_Movie" Asset_Name="Snow_White_&amp; the_Huntsman_-_Extended_Edition_M" Creation_Date="2016-10-24" Description="Snow_White_&amp; the_Huntsman_-_Extended_Edition" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+			<App_Data App="MOD" Name="Type" Value="movie"/>
+			<App_Data App="MOD" Name="Screen_Format" Value="Standard"/>
+			<App_Data App="MOD" Name="Audio_Type" Value="PCM"/>
+			<App_Data App="MOD" Name="Languages" Value="en"/>
+			<App_Data App="MOD" Name="Codec" Value="ProRes422"/>
+			<App_Data App="MOD" Name="Resolution" Value="3840p"/>
+			<App_Data App="MOD" Name="Frame_Rate" Value="23"/>
+			<App_Data App="MOD" Name="Bit_Rate" Value="30000"/>
+			<App_Data App="MOD" Name="HDContent" Value="Y"/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+		</Metadata>
+		<Content Value="T0ACF_235LB_TXM_SDR_EN-US.mov"/>
+	</Asset>
+	<Asset>
+		<Metadata>
+				<AMS Asset_Class="Poster" Asset_ID="Snow_White_&amp; the_Huntsman_-_Extended_Edition_Poster" Asset_Name="Snow_White_&amp; the_Huntsman_-_Extended_Edition_Poster" Creation_Date="2016-10-24" Description="Snow_White_&amp; the_Huntsman_-_Extended_Edition" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="2808"/>
+				<App_Data App="MOD" Name="Image_Aspect_Ratio" Value="1400x2100 "/>
+				<App_Data App="MOD" Name="Type" Value="Poster"/>
+		</Metadata>
+		<Content Value="snowwhiteandthehuntsman_EXT_1400x2100.jpg"/>
+	</Asset>
+	<Asset>
+		<Metadata>
+			<AMS Asset_Class="preview" Asset_ID="Snow_White_&amp; the_Huntsman_-_Extended_Edition_Preview" Asset_Name="Snow_White_&amp; the_Huntsman_-_Extended_Edition_M" Creation_Date="2016-10-24" Description="Snow_White_&amp; the_Huntsman_-_Extended_Edition" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+ 			<App_Data App="MOD" Name="Type" Value="preview"/>
+ 			<App_Data App="MOD" Name="Rating" Value="NR"/>
+ 			<App_Data App="MOD" Name="Audio_Type" Value="PCM"/>
+ 			<App_Data App="MOD" Name="HDContent" Value="Y"/>
+ 			<App_Data App="MOD" Name="Run_Time" Value="00:01:51"/>
+ 		</Metadata>
+ 		<Content Value="SnowWhiteAndTheHuntsman_02410_FTR_Theatrical_2398_16x9FF_ENG_8CH_HD_ProResHQ_220M_Trailer.mov"/>
+	</Asset>
+	</Asset>
+</ADI>
