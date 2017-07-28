@@ -231,30 +231,7 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
                     file.close()
                     return [file_headers,file_content]
 
-                '''else:
-                    print("Error missing folder: "+'../../xmls_out/'+content_provider+'/'+package_name+'/')
-                    print("Trying again")
-                    main(package_name)
-
-
-
-                this is all fucked
-
-
-                if(os.path.exists('../../xmls_out/'+content_provider+'/valid/'+package_name)):
-                    shutil.rmtree('../../xmls_out/'+content_provider+'/valid/'+package_name)
-                try:
-                    os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
-                except:
-                    shutil.rmtree('../../xmls_out/'+content_provider+'/invalid/'+package_name)
-                    os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
-                    print('Validation info retrieved from s3, shows a validation failure')
-                    file = open('../../xmls_out/'+content_provider+'/invalid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
-                    file_headers = file.readline()
-                    file_content =  file.readline()
-                    file.close()'''
-
-
+                
 
 
                     #########################os.remove('../../xmls_in/'+package_name+'.xml')
