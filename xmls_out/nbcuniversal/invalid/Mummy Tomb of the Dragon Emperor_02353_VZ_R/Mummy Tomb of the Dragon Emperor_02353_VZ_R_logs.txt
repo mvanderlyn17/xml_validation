@@ -1,2 +1,0 @@
-content_provider,package_name,validity_status,invalid_fields,lambda_start_time
-nbcuniversal,Mummy Tomb of the Dragon Emperor_02353_VZ_R,Invalid,Mummy Tomb of the Dragon Emperor_02353_VZ_R.xml is Missing Box Cover; Mummy Tomb of the Dragon Emperor_02353_VZ_R.xml is Missing Thumbnail; Mummy Tomb of the Dragon Emperor_02353_VZ_R.xml is Missing High Res,2017-07-28 18:48:52.630843

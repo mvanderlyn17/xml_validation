@@ -1,2 +1,0 @@
-content_provider,package_name,validity_status,invalid_fields,lambda_start_time
-viacom,VH1_BASKETBALLWIVES_612_HD_V2,Invalid,VH1_BASKETBALLWIVES_612_HD_V2.xml Does Not Have mpg Suffix,2017-07-28 18:27:07.914866

@@ -1,2 +1,0 @@
-content_provider,package_name,validity_status,invalid_fields,lambda_start_time
-viacom,z20170723_spke_trailer_vzmobvmn,Invalid,z20170723_spke_trailer_vzmobvmn.xml is Missing Package; or Content Provider Not Supported,2017-07-28 18:27:27.222257

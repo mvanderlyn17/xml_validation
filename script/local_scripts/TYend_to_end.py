@@ -231,7 +231,7 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
                     file.close()
                     return [file_headers,file_content]
 
-                
+
 
 
                     #########################os.remove('../../xmls_in/'+package_name+'.xml')

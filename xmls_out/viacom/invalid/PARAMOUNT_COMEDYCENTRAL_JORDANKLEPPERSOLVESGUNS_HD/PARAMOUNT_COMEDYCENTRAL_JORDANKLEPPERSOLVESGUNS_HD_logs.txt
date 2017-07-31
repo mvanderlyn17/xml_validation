@@ -1,2 +1,0 @@
-content_provider,package_name,validity_status,invalid_fields,lambda_start_time
-viacom,PARAMOUNT_COMEDYCENTRAL_JORDANKLEPPERSOLVESGUNS_HD,Invalid,PARAMOUNT_COMEDYCENTRAL_JORDANKLEPPERSOLVESGUNS_HD.xml Does Not Have mpg Suffix,2017-07-28 18:27:04.181914

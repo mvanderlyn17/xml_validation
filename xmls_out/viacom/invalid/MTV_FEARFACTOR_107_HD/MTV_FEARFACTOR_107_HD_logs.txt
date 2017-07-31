@@ -1,2 +1,0 @@
-content_provider,package_name,validity_status,invalid_fields,lambda_start_time
-viacom,MTV_FEARFACTOR_107_HD,Invalid,MTV_FEARFACTOR_107_HD.xml Does Not Have mpg Suffix,2017-07-28 18:27:29.886474
