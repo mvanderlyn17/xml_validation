@@ -1,0 +1,2 @@
+content_provider,package_name,validity_status,invalid_fields
+nbcuniversal,Battleship_02392_VZ_R_NBC,Valid,[]

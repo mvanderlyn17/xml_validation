@@ -15,9 +15,9 @@
 	<release_date>2017-07-10</release_date>
     <original_release_year>2017</original_release_year>
     <genres>
-    	   
+
 	   <genre>Reality TV</genre>
-	   
+
     </genres>
     <ratings>
       <rating system="us-tv">TV-14</rating>
@@ -30,8 +30,8 @@
     <contributors>
     </contributors>
     <data_file>
-	  <video_file>	  
-        <file_name>VH1_BASKETBALLWIVES_612_HD.</file_name>
+	  <video_file>
+        <file_name>VH1_BASKETBALLWIVES_612_HD.mpg</file_name>
         <runtime>00:41:52</runtime>
 	  </video_file>
 	  <captions>
