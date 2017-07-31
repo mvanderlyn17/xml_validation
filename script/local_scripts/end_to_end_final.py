@@ -87,26 +87,10 @@ def watch_dir(input_file = ""):
     if added:
         time.sleep(.1)
         for filename in os.listdir("../../xmls_in/"):
-            #print(filename)
             if filename.endswith(".xml"):
-                #if(not input_file):
-                    #file = ", ".join(added)
-                #else:
-                #print('MUNNY')
                 file = filename
-                #file = ", ".join(added)
             else:
                 continue
-
-
-
-
-
-        #if(not input_file):
-    #        file = ", ".join(added)
-    #    else:
-    #        file = input_file
-
         print("Upload started: "+file)
         try:
             data = open("../../xmls_in/"+file, 'rb')
@@ -114,7 +98,7 @@ def watch_dir(input_file = ""):
             time.sleep(2)
             data = open("../../xmls_in/"+file, 'rb')
 
-        s3.Bucket('gen3-interns-trigger').put_object(Key=file, Body=data)
+        s3.Bucket('gen3-interns-trigger').put_object(Key="in/"+file, Body=data)
         print("Upload Complete")
         before = dict ([(f, None) for f in os.listdir (path_to_watch)])
         xml_file = minidom.parse("../../xmls_in/"+file)
@@ -152,7 +136,7 @@ def watch_dir(input_file = ""):
             print("Error: "+package_name+" already in xml_out, removing and trying again")
             shutil.rmtree('../../xmls_out/'+content_provider+'/'+package_name)
         #this one fucks everything    main(package_name)
-        obj = s3.Object(bucket_name='gen3-interns-trigger', key=file)
+        obj = s3.Object(bucket_name='gen3-interns-trigger', key="in/"+file)
         return [content_provider,package_name,obj.last_modified]
     #if removed:
         #print "Removed: ", ", ".join (removed)
@@ -167,10 +151,10 @@ def pull_from_s3_success(content_provider,package_name):
 # if a file is here that means it was validated, and the package is good to go on to
 # the rest of the gen3 ingest process.
 ### Returns either an array with the file headers and the file content found in the field, or false
-    if(checkLog('gen3-interns-'+content_provider+'total',''+package_name+'_logs.txt')):
+    if(checkLog('gen3-interns-trigger','valid/'+package_name+'_logs.txt')):
         print('New validation info found for a valid XML')
         try:
-            s3.Bucket('gen3-interns-'+content_provider+'total').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
+            s3.Bucket('gen3-interns-trigger').download_file('valid/'+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
             if(os.path.exists('../../xmls_out/'+content_provider+'/invalid/'+package_name)):
                 shutil.rmtree('../../xmls_out/'+content_provider+'/invalid/'+package_name)
                 #maybe make this so it moves the package, then writes over the xml
@@ -181,7 +165,11 @@ def pull_from_s3_success(content_provider,package_name):
                 os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/valid/'+package_name) #moves package folder into success or failure
             #os.rename('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/valid/'+package_name) #moves package folder into success or failure
             print('Validation info retrieved from s3, shows a validation success')
-            client.delete_object(Bucket='gen3-interns-'+content_provider+'total', Key =''+package_name+'_logs.txt')
+            client.delete_object(Bucket='gen3-interns-trigger', Key ='valid/'+package_name+'_logs.txt')
+            try: # might not need
+                client.delete_object(Bucket='gen3-interns-trigger', Key ='invalid/'+package_name+'_logs.txt')
+            except:
+                print('yikes')
             print('Old validation info deleted from s3')
             file = open('../../xmls_out/'+content_provider+'/valid/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
             file_headers = file.readline()
@@ -203,21 +191,20 @@ def pull_from_s3_failures(content_provider,package_name, start_time):
 # that the xml didn't pass validation and that the content provider and our team must be alerted
 # this function also moves the package to a seperate location while it waits for our team to deal with it
 ### Returns either an array with the file headers and the file content found in the field, or false
-    if(checkLog('gen3-interns-'+content_provider+'failures',''+package_name+'_logs.txt')):
-        obj = s3.Object(bucket_name='gen3-interns-'+content_provider+'failures', key=''+package_name+'_logs.txt')
+    if(checkLog('gen3-interns-trigger','invalid/'+package_name+'_logs.txt')):
+        obj = s3.Object(bucket_name='gen3-interns-trigger', key='invalid/'+package_name+'_logs.txt')
         last_mod = obj.last_modified
         if(last_mod < start_time):
-            s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
+            s3.meta.client.delete_object(Bucket='gen3-interns-trigger', Key='invalid/'+package_name+'_logs.txt')
             print("deleted old validation info")
         else:
             print('New validation info found for an invalid XML')
             try:
                 if(os.path.exists('../../xmls_out/'+content_provider+'/'+package_name+'/')):
 
-                    s3.Bucket('gen3-interns-'+content_provider+'failures').download_file(''+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
+                    s3.Bucket('gen3-interns-trigger').download_file('invalid'+package_name+'_logs.txt', '../../xmls_out/'+content_provider+'/'+package_name+'/'+package_name+'_logs.txt') #add LOG to the end
                     print("File Downloaded")
-                    s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt')
-
+                    #s3.meta.client.delete_object(Bucket='gen3-interns-'+content_provider+'failures', Key=''+package_name+'_logs.txt') might want this back in
                     try:
                         os.renames('../../xmls_out/'+content_provider+'/'+package_name , '../../xmls_out/'+content_provider+'/invalid/'+package_name) #moves package folder into success or failure
                     except:
