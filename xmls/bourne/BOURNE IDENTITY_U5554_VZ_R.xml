@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ADI>
+	<Metadata>
+		<AMS Asset_ID="The_Bourne_Identity_Package" Asset_Name="The_Bourne_Identity" Creation_Date="2016-10-24" Description="The_Bourne_Identity" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<App_Data App="MOD" Name="Provider_Content_Tier" Value="nbcuniversal"/>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+	<Metadata>
+		<AMS Asset_Class="title" Asset_ID="The_Bourne_Identity_Title" Asset_Name="The_Bourne_Identity_T" Creation_Date="2016-10-24" Description="The_Bourne_Identity" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<App_Data App="MOD" Name="Is4K" Value="Y"/>
+		<App_Data App="MOD" Name="Run_Time" Value="01:58:00"/>
+		<App_Data App="MOD" Name="Display_Run_Time" Value="01:58"/>
+		<App_Data App="MOD" Name="Type" Value="title"/>
+		<App_Data App="MOD" Name="Title_Brief" Value="The Bourne Identity"/>
+		<App_Data App="MOD" Name="Title" Value="The Bourne Identity"/>
+		<App_Data App="MOD" Name="Summary_Short" Value="Oscar® winner Matt Damon stars in this action-packed thriller about an elite government agent who is pulled from the sea with two bullets in his back and no memory of his violent past."/>
+		<App_Data App="MOD" Name="Summary_Long" Value="“A new action hero is Bourne!” (Access Hollywood) Get ready for the explosive, action-packed hit with incredible fight sequences, starring Academy Award® winner Matt Damon (Ocean’s Eleven). Pulled from the sea with two bullets in his back, Jason Bourne discovers he has the skills of a very dangerous man and no memory of his violent past. Racing to unlock the secret of his own identity, he discovers the deadly truth: he’s an elite government agent. But to the government, Jason Bourne isn’t just their property, he’s a malfunctioning thirty million dollar weapon. Lethally trained, built to disappear, he’s an agent on the run who has to be taken out. Now, the government’s top operative has become its number one target, in a super-charged, thrill-a-minute spectacular loaded with “Non-stop action!” (Bill Zwecker, FOX-TV)"/>
+		<App_Data App="MOD" Name="Series_Name" Value="The Bourne Identity"/>
+		<App_Data App="MOD" Name="Billing_ID" Value="12345"/>
+		<App_Data App="MOD" Name="Preview_Period" Value="0"/>
+		<App_Data App="MOD" Name="Rating" Value="PG-13"/>
+		<App_Data App="MOD" Name="Genre" Value="Drama"/>
+		<App_Data App="MOD" Name="Genre" Value="Thriller"/>
+		<App_Data App="MOD" Name="Genre" Value="Action &amp; Adventure"/>
+		<App_Data App="MOD" Name="Category" Value="All"/>
+		<App_Data App="MOD" Name="Suggested_Price" Value="0.00"/>
+		<App_Data App="MOD" Name="Licensing_Window_End" Value=""/>
+		<App_Data App="MOD" Name="Licensing_Window_Start" Value=""/>
+		<App_Data App="MOD" Name="Provider_QA_Contact" Value="ecdmc@nbcuni.com"/>
+		<App_Data App="MOD" Name="Closed_Captioning" Value="Y"/>
+		<App_Data App="MOD" Name="Show_Type" Value="Series"/>
+		<App_Data App="MOD" Name="Year" Value="2002"/>
+		<App_Data App="MOD" Name="Title_Sort_Name" Value="The Bourne Identity"/>
+		<App_Data App="MOD" Name="Advisories" Value=""/>
+		<App_Data App="MOD" Name="Episode_Name" Value="The Bourne Identity"/>
+		<App_Data App="MOD" Name="Episode_ID" Value="U5554"/>
+		<App_Data App="MOD" Name="Season_Number" Value=""/>
+   		<App_Data App="MOD" Name="Genre_Display" Value="Action &amp; Adventure"/>
+		<App_Data App="MOD" Name="Original_Air_Date" Value="2002-06-14"/>
+		<App_Data App="MOD" Name="Studio" Value=""/>
+		<App_Data App="MOD" Name="Studio_Name" Value="Universal Studios"/>
+		<App_Data App="MOD" Name="Viewing_Can_Be_Resumed" Value="Yes"/>
+		<App_Data App="MOD" Name="Display_as_Last_Chance" Value="7"/>
+		<App_Data App="MOD" Name="Display_As_New" Value="4"/>
+		<App_Data App="MOD" Name="Ad_Content_ID" Value=""/>
+		<App_Data App="MOD" Name="4K_SDR_VideoFile" Value="U5554_235LB_TXM_SDR_EN-US.mov"/>
+		<App_Data App="MOD" Name="4K_HDR_VideoFile" Value="U5554_235LB_TXM_HDR_EN-US.mov"/>
+		<App_Data App="MOD" Name="4K_SCCFile" Value="U5554_CCA_EN-US.xml"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Asset_Class="movie" Asset_ID="The_Bourne_Identity_Movie" Asset_Name="The_Bourne_Identity_M" Creation_Date="2016-10-24" Description="The_Bourne_Identity" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+			<App_Data App="MOD" Name="Type" Value="movie"/>
+			<App_Data App="MOD" Name="Screen_Format" Value="Standard"/>
+			<App_Data App="MOD" Name="Audio_Type" Value="PCM"/>
+			<App_Data App="MOD" Name="Languages" Value="en"/>
+			<App_Data App="MOD" Name="Codec" Value="ProRes422"/>
+			<App_Data App="MOD" Name="Resolution" Value="3840p"/>
+			<App_Data App="MOD" Name="Frame_Rate" Value="23"/>
+			<App_Data App="MOD" Name="Bit_Rate" Value="30000"/>
+			<App_Data App="MOD" Name="HDContent" Value="Y"/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+		</Metadata>
+		<Content Value="U5554_235LB_TXM_SDR_EN-US.mov"/>
+	</Asset>
+	<Asset>
+		<Metadata>
+				<AMS Asset_Class="Poster" Asset_ID="The_Bourne_Identity_Poster" Asset_Name="The_Bourne_Identity_Poster" Creation_Date="2016-10-24" Description="The_Bourne_Identity" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+				<App_Data App="MOD" Name="Content_FileSize" Value="3106"/>
+				<App_Data App="MOD" Name="Image_Aspect_Ratio" Value="1400x2100 "/>
+				<App_Data App="MOD" Name="Type" Value="Poster"/>
+			</Metadata>
+			<Content Value="u5554_bourneidentity_1400x2100.jpg"/>
+	</Asset>
+	<Asset>
+		<Metadata>
+			<AMS Asset_Class="preview" Asset_ID="The_Bourne_Identity_Preview" Asset_Name="The_Bourne_Identity_M" Creation_Date="2016-10-24" Description="The_Bourne_Identity" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+ 			<App_Data App="MOD" Name="Type" Value="preview"/>
+ 			<App_Data App="MOD" Name="Rating" Value="NR"/>
+ 			<App_Data App="MOD" Name="Audio_Type" Value="PCM"/>
+ 			<App_Data App="MOD" Name="HDContent" Value="Y"/>
+ 			<App_Data App="MOD" Name="Run_Time" Value="00:02:06"/>
+ 		</Metadata>
+ 		<Content Value="BourneIdentityThe_05554_FTR_Theatrical_2997_4x3LB_ENG_NTSC_ProResHQ_60M_Trailer.mov"/>
+	</Asset>
+	</Asset>
+</ADI>
