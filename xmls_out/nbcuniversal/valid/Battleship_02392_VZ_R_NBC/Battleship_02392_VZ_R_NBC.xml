@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ADI>
+	<Metadata>
+		<AMS Asset_Class="package" Asset_ID="Battleship_Package" Asset_Name="Battleship" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<App_Data App="MOD" Name="Provider_Content_Tier" Value="nbcuniversal"/>
+		<App_Data App="MOD" Name="Metadata_Spec_Version" Value="CableLabsVOD1.1"/>
+	</Metadata>
+	<Asset>
+	<Metadata>
+		<AMS Asset_Class="title" Asset_ID="Battleship_Title" Asset_Name="Battleship_T" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<App_Data App="MOD" Name="Is4K" Value="Y"/>
+		<App_Data App="MOD" Name="Run_Time" Value="02:01:03"/>
+		<App_Data App="MOD" Name="Display_Run_Time" Value="02:01"/>
+		<App_Data App="MOD" Name="Type" Value="title"/>
+		<App_Data App="MOD" Name="Title_Brief" Value="Battleship"/>
+		<App_Data App="MOD" Name="Title" Value="Battleship"/>
+		<App_Data App="MOD" Name="Summary_Short" Value="An international naval coalition becomes the world’s last hope for survival as they engage a hostile alien force in this epic action-adventure. Stars Taylor Kitsch and Liam Neeson."/>
+		<App_Data App="MOD" Name="Summary_Long" Value="The battle for Earth begins at sea in this epic action-adventure starring Taylor Kitsch, Rihanna, Alexander Skarsgard, Brooklyn Decker and Liam Neeson. An international naval coalition becomes the world’s last hope for survival as they engage a hostile alien force of unimaginable strength. Ripping across sea, sky and land, Battleship is “a big bold blast” (MSN Movies), packed with spectacular visual effects and explosive action."/>
+		<App_Data App="MOD" Name="Series_Name" Value="Battleship"/>
+		<App_Data App="MOD" Name="Billing_ID" Value="12345"/>
+		<App_Data App="MOD" Name="Preview_Period" Value="0"/>
+		<App_Data App="MOD" Name="Rating" Value="PG-13"/>
+		<App_Data App="MOD" Name="Genre" Value="Action &amp; Adventure"/>
+		<App_Data App="MOD" Name="Category" Value="All"/>
+		<App_Data App="MOD" Name="Suggested_Price" Value="0.00"/>
+		<App_Data App="MOD" Name="Licensing_Window_End" Value=""/>
+		<App_Data App="MOD" Name="Licensing_Window_Start" Value=""/>
+		<App_Data App="MOD" Name="Provider_QA_Contact" Value="ecdmc@nbcuni.com"/>
+		<App_Data App="MOD" Name="Closed_Captioning" Value="Y"/>
+		<App_Data App="MOD" Name="Show_Type" Value="SerieBattleship_0239202392_FTR_Theatrical_2398_16x9LB_ENG_HD_ProResHQ_220M_Trailer_v3.movs"/>
+		<App_Data App="MOD" Name="Year" Value="2012"/>
+		<App_Data App="MOD" Name="Title_Sort_Name" Value="Battleship"/>
+		<App_Data App="MOD" Name="Advisories" Value=""/>
+		<App_Data App="MOD" Name="Episode_Name" Value="Battleship"/>
+		<App_Data App="MOD" Name="Episode_ID" Value="02392"/>
+		<App_Data App="MOD" Name="Season_Number" Value=""/>
+   		<App_Data App="MOD" Name="Genre_Display" Value="Action &amp; Adventure"/>
+		<App_Data App="MOD" Name="Original_Air_Date" Value="2012-05-08"/>
+		<App_Data App="MOD" Name="Studio" Value=""/>
+		<App_Data App="MOD" Name="Studio_Name" Value="Universal Studios"/>
+		<App_Data App="MOD" Name="Viewing_Can_Be_Resumed" Value="Yes"/>
+		<App_Data App="MOD" Name="Display_as_Last_Chance" Value="7"/>
+		<App_Data App="MOD" Name="Display_As_New" Value="4"/>
+		<App_Data App="MOD" Name="Ad_Content_ID" Value=""/>
+		<App_Data App="MOD" Name="4K_SDR_VideoFile" Value="02392_240LB_TXM_SDR_EN-US.mov"/>
+		<App_Data App="MOD" Name="4K_HDR_VideoFile" Value="02392_240LB_TXM_HDR_EN-US.mov"/>
+		<App_Data App="MOD" Name="4K_SCCFile" Value="02392_CCA_EN-US.scc"/>
+	</Metadata>
+	<Asset>
+		<Metadata>
+			<AMS Asset_Class="movie" Asset_ID="Battleship_Movie" Asset_Name="Battleship_M" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+			<App_Data App="MOD" Name="Type" Value="movie"/>
+			<App_Data App="MOD" Name="Screen_Format" Value="Standard"/>
+			<App_Data App="MOD" Name="Audio_Type" Value="PCM"/>
+			<App_Data App="MOD" Name="Languages" Value="en"/>
+			<App_Data App="MOD" Name="Codec" Value="ProRes422"/>
+			<App_Data App="MOD" Name="Resolution" Value="3840p"/>
+			<App_Data App="MOD" Name="Frame_Rate" Value="23"/>
+			<App_Data App="MOD" Name="Bit_Rate" Value="30000"/>
+			<App_Data App="MOD" Name="HDContent" Value="Y"/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+			<App_Data App="MOD" Name="AdBreak" Value=""/>
+		</Metadata>
+		<Content Value="02392_240LB_TXM_SDR_EN-US.mov"/>
+	</Asset>
+	<Asset>
+		<Metadata>
+				<AMS Asset_Class="poster" Asset_ID="Battleship_Poster" Asset_Name="Battleship_Poster" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+				<App_Data App="MOD" Name="Image_Aspect_Ratio" Value="1000x1440"/>
+				<App_Data App="MOD" Name="Type" Value="Poster"/>
+			</Metadata>
+			<Content Value="61116604_battleship_1400x2100.jpg"/>
+	</Asset>
+	<Asset>
+		<Metadata>
+			<AMS Asset_Class="preview" Asset_ID="Battleship_Preview" Asset_Name="Battleship_M" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+ 			<App_Data App="MOD" Name="Type" Value="preview"/>
+ 			<App_Data App="MOD" Name="Rating" Value="NR"/>
+ 			<App_Data App="MOD" Name="Audio_Type" Value="PCM"/>
+ 			<App_Data App="MOD" Name="HDContent" Value="Y"/>
+ 			<App_Data App="MOD" Name="Run_Time" Value="00:00:10"/>
+ 		</Metadata>
+ 		<Content Value="Battleship_0239202392_FTR_Theatrical_2398_16x9LB_ENG_HD_ProResHQ_220M_Trailer_v3.mov"/>
+	</Asset>
+	<AMS Asset_Class="box cover" Asset_ID="Battleship_Poster" Asset_Name="Battleship_Poster" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+		<AMS Asset_Class="thumb nail" Asset_ID="Battleship_Poster" Asset_Name="Battleship_Poster" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+			<AMS Asset_Class="high res" Asset_ID="Battleship_Poster" Asset_Name="Battleship_Poster" Creation_Date="2016-10-24" Description="Battleship" Product="MOD" Provider="MSV_4K_NBCU" Provider_ID="4knbcu.com " Verb="" Version_Major="0" Version_Minor="1"/>
+
+	</Asset>
+</ADI>
