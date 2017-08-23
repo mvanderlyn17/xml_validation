@@ -655,5 +655,3 @@ def validateNBC(xml_file, xml_file_name):
         #server.sendmail("testintegrate2017@gmail.com", "ty.raffensperger@gmail.com", msg)
         #server.quit()
         return ["Valid",[]]
-
-    
